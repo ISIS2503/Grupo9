@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package main.entities;
 
 /**
  *
  * @author jm.dominguez
  */
-public class SonidoEntity extends MedidasEntity {
+public class COEntity extends MedidasEntity {
     
 }
