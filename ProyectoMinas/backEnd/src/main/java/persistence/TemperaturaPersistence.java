@@ -5,7 +5,7 @@
  */
 package persistence;
 
-import entities.TemperaturaEntity;
+import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

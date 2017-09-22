@@ -5,7 +5,7 @@
  */
 package persistence;
 
-import entities.MedidasEntity;
+import main.entities.MedidasEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

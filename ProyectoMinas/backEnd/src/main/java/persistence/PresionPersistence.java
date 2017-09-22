@@ -6,7 +6,7 @@
 package persistence;
 
 
-import entities.PresionEntity;
+import main.entities.PresionEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
