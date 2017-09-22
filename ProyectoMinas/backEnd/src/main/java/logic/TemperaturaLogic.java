@@ -9,6 +9,6 @@ package logic;
  *
  * @author n.acevedos
  */
-public class TemperaturaEntity {
+public class TemperaturaLogic {
     
 }
