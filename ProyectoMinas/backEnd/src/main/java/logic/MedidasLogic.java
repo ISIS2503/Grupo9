@@ -1,8 +1,8 @@
 package logic;
 
 
-import entities.COEntity;
-import entities.MedidasEntity;
+import main.entities.COEntity;
+import main.entities.MedidasEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

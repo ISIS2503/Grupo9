@@ -5,7 +5,7 @@
  */
 package persistence;
 
-import entities.COEntity;
+import main.entities.COEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

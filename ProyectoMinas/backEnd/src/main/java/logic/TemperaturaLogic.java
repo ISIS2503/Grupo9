@@ -1,11 +1,11 @@
 package logic;
 
 
-import entities.COEntity;
-import entities.MedidasEntity;
-import entities.PresionEntity;
-import entities.SonidoEntity;
-import entities.TemperaturaEntity;
+import main.entities.COEntity;
+import main.entities.MedidasEntity;
+import main.entities.PresionEntity;
+import main.entities.SonidoEntity;
+import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
