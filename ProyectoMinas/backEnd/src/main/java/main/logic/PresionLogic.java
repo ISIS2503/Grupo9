@@ -1,4 +1,4 @@
-package logic;
+package main.logic;
 
 
 import main.entities.COEntity;
@@ -8,8 +8,8 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import persistence.MedidasPersistence;
-import persistence.PresionPersistence;
+import main.persistenceManagers.MedidasPersistence;
+import main.persistenceManagers.PresionPersistence;
 
 
 /**

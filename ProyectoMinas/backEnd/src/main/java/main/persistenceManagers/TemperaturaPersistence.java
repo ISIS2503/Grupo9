@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistence;
+package main.persistenceManagers;
 
-import main.entities.MedidasEntity;
+import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,7 +17,7 @@ import javax.persistence.Query;
  * @author b.gamba10
  */
 @Stateless
-public class MedidasPersistence {
+public class TemperaturaPersistence {
     
     //----------------------------------------------------------------------------------------------------
     // ATRIBUTOS
@@ -32,24 +32,24 @@ public class MedidasPersistence {
     // METODOS
     //----------------------------------------------------------------------------------------------------
     /**
-     * Nuevo MedidasEntity
+     * Nuevo TemperaturaEntity
      *
      * @param entity la entidad que se desea agregar
      * @return la entidad que fue agregada
      */
-    public MedidasEntity create(MedidasEntity entity)
+    public TemperaturaEntity create(TemperaturaEntity entity)
     {
         em.persist(entity);
         return entity;
     }
 
     /**
-     * modifica la información de un MedidasEntity
+     * modifica la información de un TemperaturaEntity
      *
      * @param entity la entidad que se desea actualizar
      * @return la entidad que fue actualizada
      */
-    public MedidasEntity update(MedidasEntity entity)
+    public TemperaturaEntity update(TemperaturaEntity entity)
     {
         return em.merge(entity);
     }
@@ -57,24 +57,24 @@ public class MedidasPersistence {
     /**
      * Retorna una lista con todas las entidades (tuplas) de la tabla
      *
-     * @return lista de MedidasEntities
+     * @return lista de TemperaturaEntities
      */
-    public List<MedidasEntity> findAll()
+    public List<TemperaturaEntity> findAll()
     {
-        Query query = em.createQuery("select u from MedidasEntity u");
+        Query query = em.createQuery("select u from TemperaturaEntity u");
         return query.getResultList();
     }
 
     /**
-     * retorna un MedidasEntity de acuerdo a un ID
+     * retorna un TemperaturaEntity de acuerdo a un ID
      *
      * @param id el id de la entidad que se desea encontrar
      * @return null si no encuentra la entidad con el ID, la entidad si la
      * encuentra
      */
-    public MedidasEntity find(Long id)
+    public TemperaturaEntity find(Long id)
     {
-        MedidasEntity entity = em.find(MedidasEntity.class, id);
+        TemperaturaEntity entity = em.find(TemperaturaEntity.class, id);
         return entity;
     }
     
@@ -85,7 +85,7 @@ public class MedidasPersistence {
      */
     public void delete(Long id)
     {
-        MedidasEntity entity = em.find(MedidasEntity.class, id);
+        TemperaturaEntity entity = em.find(TemperaturaEntity.class, id);
         em.remove(entity);
     }
 }

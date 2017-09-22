@@ -1,19 +1,17 @@
-package logic;
+package main.logic;
 
 
 import main.entities.COEntity;
 import main.entities.MedidasEntity;
 import main.entities.PresionEntity;
 import main.entities.SonidoEntity;
-import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import persistence.MedidasPersistence;
-import persistence.PresionPersistence;
-import persistence.SonidoPersistence;
-import persistence.TemperaturaPersistence;
+import main.persistenceManagers.MedidasPersistence;
+import main.persistenceManagers.PresionPersistence;
+import main.persistenceManagers.SonidoPersistence;
 
 
 /**
@@ -21,14 +19,14 @@ import persistence.TemperaturaPersistence;
  * @author n.acevedos
  */
 @Stateless
-public class TemperaturaLogic {
+public class SonidoLogic {
     
-    public TemperaturaLogic()
+    public SonidoLogic()
             {
                 
             }
     
-    @Inject private TemperaturaPersistence persistence;
+    @Inject private SonidoPersistence persistence;
     
     /**
      * Obtiene la lista de los registros de Usuario.
@@ -37,7 +35,7 @@ public class TemperaturaLogic {
      * 
      */
    
-    public List<TemperaturaEntity> getTemperaturas() {
+    public List<SonidoEntity> getSonidos() {
         return persistence.findAll(); 
     }
     
@@ -49,8 +47,8 @@ public class TemperaturaLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public TemperaturaEntity getTemperatura(Long id) {
-        TemperaturaEntity ue= persistence.find(id);
+    public SonidoEntity getSonido(Long id) {
+        SonidoEntity ue= persistence.find(id);
          if (ue == null)
          {
              System.out.println("No existe un usuario con ese id"); 
@@ -66,7 +64,7 @@ public class TemperaturaLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      * @generated
      */
-    public TemperaturaEntity createTemperaturas(TemperaturaEntity entity) {
+    public SonidoEntity createSonidos(SonidoEntity entity) {
        
         persistence.create(entity);
         return entity;
@@ -80,7 +78,7 @@ public class TemperaturaLogic {
      * 
      */
     // TODO: revisar las validaciones al momento de actualizar
-    public TemperaturaEntity updateTemperatura(TemperaturaEntity entity) {
+    public SonidoEntity updateSonidos(SonidoEntity entity) {
         return persistence.update(entity);
     }
     
@@ -91,7 +89,7 @@ public class TemperaturaLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteTemperatura(Long id){
+    public void deleteSonidos(Long id){
        
         persistence.delete(id);
         

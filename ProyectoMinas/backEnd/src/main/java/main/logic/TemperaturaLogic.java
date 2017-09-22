@@ -1,13 +1,19 @@
-package logic;
+package main.logic;
 
 
 import main.entities.COEntity;
 import main.entities.MedidasEntity;
+import main.entities.PresionEntity;
+import main.entities.SonidoEntity;
+import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import persistence.MedidasPersistence;
+import main.persistenceManagers.MedidasPersistence;
+import main.persistenceManagers.PresionPersistence;
+import main.persistenceManagers.SonidoPersistence;
+import main.persistenceManagers.TemperaturaPersistence;
 
 
 /**
@@ -15,14 +21,14 @@ import persistence.MedidasPersistence;
  * @author n.acevedos
  */
 @Stateless
-public class MedidasLogic {
+public class TemperaturaLogic {
     
-    public MedidasLogic()
+    public TemperaturaLogic()
             {
                 
             }
     
-    @Inject private MedidasPersistence persistence;
+    @Inject private TemperaturaPersistence persistence;
     
     /**
      * Obtiene la lista de los registros de Usuario.
@@ -31,7 +37,7 @@ public class MedidasLogic {
      * 
      */
    
-    public List<MedidasEntity> getMedidas() {
+    public List<TemperaturaEntity> getTemperaturas() {
         return persistence.findAll(); 
     }
     
@@ -43,8 +49,8 @@ public class MedidasLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public MedidasEntity getMedida(Long id) {
-        MedidasEntity ue= persistence.find(id);
+    public TemperaturaEntity getTemperatura(Long id) {
+        TemperaturaEntity ue= persistence.find(id);
          if (ue == null)
          {
              System.out.println("No existe un usuario con ese id"); 
@@ -60,7 +66,7 @@ public class MedidasLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      * @generated
      */
-    public MedidasEntity createMedida(COEntity entity) {
+    public TemperaturaEntity createTemperaturas(TemperaturaEntity entity) {
        
         persistence.create(entity);
         return entity;
@@ -74,12 +80,8 @@ public class MedidasLogic {
      * 
      */
     // TODO: revisar las validaciones al momento de actualizar
-    public MedidasEntity updateMedida(MedidasEntity entity) {
-       
-        
+    public TemperaturaEntity updateTemperatura(TemperaturaEntity entity) {
         return persistence.update(entity);
-        
-        
     }
     
     /**
@@ -89,7 +91,7 @@ public class MedidasLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteMedida(Long id){
+    public void deleteTemperatura(Long id){
        
         persistence.delete(id);
         

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistence;
+package main.persistenceManagers;
 
-
-import main.entities.PresionEntity;
+import main.entities.MedidasEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,7 +17,7 @@ import javax.persistence.Query;
  * @author b.gamba10
  */
 @Stateless
-public class PresionPersistence {
+public class MedidasPersistence {
     
     //----------------------------------------------------------------------------------------------------
     // ATRIBUTOS
@@ -33,24 +32,24 @@ public class PresionPersistence {
     // METODOS
     //----------------------------------------------------------------------------------------------------
     /**
-     * Nuevo PresionEntity
+     * Nuevo MedidasEntity
      *
      * @param entity la entidad que se desea agregar
      * @return la entidad que fue agregada
      */
-    public PresionEntity create(PresionEntity entity)
+    public MedidasEntity create(MedidasEntity entity)
     {
         em.persist(entity);
         return entity;
     }
 
     /**
-     * modifica la información de un PresionEntity
+     * modifica la información de un MedidasEntity
      *
      * @param entity la entidad que se desea actualizar
      * @return la entidad que fue actualizada
      */
-    public PresionEntity update(PresionEntity entity)
+    public MedidasEntity update(MedidasEntity entity)
     {
         return em.merge(entity);
     }
@@ -58,24 +57,24 @@ public class PresionPersistence {
     /**
      * Retorna una lista con todas las entidades (tuplas) de la tabla
      *
-     * @return lista de PresionEntities
+     * @return lista de MedidasEntities
      */
-    public List<PresionEntity> findAll()
+    public List<MedidasEntity> findAll()
     {
-        Query query = em.createQuery("select u from PresionEntity u");
+        Query query = em.createQuery("select u from MedidasEntity u");
         return query.getResultList();
     }
 
     /**
-     * retorna un PresionEntity de acuerdo a un ID
+     * retorna un MedidasEntity de acuerdo a un ID
      *
      * @param id el id de la entidad que se desea encontrar
      * @return null si no encuentra la entidad con el ID, la entidad si la
      * encuentra
      */
-    public PresionEntity find(Long id)
+    public MedidasEntity find(Long id)
     {
-        PresionEntity entity = em.find(PresionEntity.class, id);
+        MedidasEntity entity = em.find(MedidasEntity.class, id);
         return entity;
     }
     
@@ -86,7 +85,7 @@ public class PresionPersistence {
      */
     public void delete(Long id)
     {
-        PresionEntity entity = em.find(PresionEntity.class, id);
+        MedidasEntity entity = em.find(MedidasEntity.class, id);
         em.remove(entity);
     }
 }

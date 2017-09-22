@@ -1,17 +1,13 @@
-package logic;
+package main.logic;
 
 
 import main.entities.COEntity;
 import main.entities.MedidasEntity;
-import main.entities.PresionEntity;
-import main.entities.SonidoEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import persistence.MedidasPersistence;
-import persistence.PresionPersistence;
-import persistence.SonidoPersistence;
+import main.persistenceManagers.MedidasPersistence;
 
 
 /**
@@ -19,14 +15,14 @@ import persistence.SonidoPersistence;
  * @author n.acevedos
  */
 @Stateless
-public class SonidoLogic {
+public class MedidasLogic {
     
-    public SonidoLogic()
+    public MedidasLogic()
             {
                 
             }
     
-    @Inject private SonidoPersistence persistence;
+    @Inject private MedidasPersistence persistence;
     
     /**
      * Obtiene la lista de los registros de Usuario.
@@ -35,7 +31,7 @@ public class SonidoLogic {
      * 
      */
    
-    public List<SonidoEntity> getSonidos() {
+    public List<MedidasEntity> getMedidas() {
         return persistence.findAll(); 
     }
     
@@ -47,8 +43,8 @@ public class SonidoLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public SonidoEntity getSonido(Long id) {
-        SonidoEntity ue= persistence.find(id);
+    public MedidasEntity getMedida(Long id) {
+        MedidasEntity ue= persistence.find(id);
          if (ue == null)
          {
              System.out.println("No existe un usuario con ese id"); 
@@ -64,7 +60,7 @@ public class SonidoLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      * @generated
      */
-    public SonidoEntity createSonidos(SonidoEntity entity) {
+    public MedidasEntity createMedida(COEntity entity) {
        
         persistence.create(entity);
         return entity;
@@ -78,8 +74,12 @@ public class SonidoLogic {
      * 
      */
     // TODO: revisar las validaciones al momento de actualizar
-    public SonidoEntity updateSonidos(SonidoEntity entity) {
+    public MedidasEntity updateMedida(MedidasEntity entity) {
+       
+        
         return persistence.update(entity);
+        
+        
     }
     
     /**
@@ -89,7 +89,7 @@ public class SonidoLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteSonidos(Long id){
+    public void deleteMedida(Long id){
        
         persistence.delete(id);
         
