@@ -28,7 +28,6 @@ import javax.persistence.TemporalType;
 public class MedidasEntity implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String ubicacion;
     
     protected int valor;
@@ -36,7 +35,7 @@ public class MedidasEntity implements Serializable{
     protected String unidad;
     
     @Temporal(TemporalType.DATE)
-    private Date fecha; 
+    protected Date fecha; 
 
     public int getValor() {
         return valor;
