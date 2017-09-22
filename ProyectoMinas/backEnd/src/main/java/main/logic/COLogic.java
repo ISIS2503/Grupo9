@@ -1,4 +1,4 @@
-package logic;
+package main.logic;
 
 
 import main.entities.COEntity;
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import java.util.Date;
 import java.util.List;
-import persistence.COPersistence;
+import main.persistenceManagers.COPersistence;
 
 
 /**

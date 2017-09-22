@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistence;
+package main.persistenceManagers;
 
-import main.entities.COEntity;
+
+import main.entities.SonidoEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,7 +18,7 @@ import javax.persistence.Query;
  * @author b.gamba10
  */
 @Stateless
-public class COPersistence {
+public class SonidoPersistence {
     
     //----------------------------------------------------------------------------------------------------
     // ATRIBUTOS
@@ -32,24 +33,24 @@ public class COPersistence {
     // METODOS
     //----------------------------------------------------------------------------------------------------
     /**
-     * Nuevo COEntity
+     * Nuevo SonidoEntity
      *
      * @param entity la entidad que se desea agregar
      * @return la entidad que fue agregada
      */
-    public COEntity create(COEntity entity)
+    public SonidoEntity create(SonidoEntity entity)
     {
         em.persist(entity);
         return entity;
     }
 
     /**
-     * modifica la información de un COEntity
+     * modifica la información de un SonidoEntity
      *
      * @param entity la entidad que se desea actualizar
      * @return la entidad que fue actualizada
      */
-    public COEntity update(COEntity entity)
+    public SonidoEntity update(SonidoEntity entity)
     {
         return em.merge(entity);
     }
@@ -57,24 +58,24 @@ public class COPersistence {
     /**
      * Retorna una lista con todas las entidades (tuplas) de la tabla
      *
-     * @return lista de COEntities
+     * @return lista de SonidoEntities
      */
-    public List<COEntity> findAll()
+    public List<SonidoEntity> findAll()
     {
-        Query query = em.createQuery("select u from COEntity u");
+        Query query = em.createQuery("select u from SonidoEntity u");
         return query.getResultList();
     }
 
     /**
-     * retorna un COEntity de acuerdo a un ID
+     * retorna un SonidoEntity de acuerdo a un ID
      *
      * @param id el id de la entidad que se desea encontrar
      * @return null si no encuentra la entidad con el ID, la entidad si la
      * encuentra
      */
-    public COEntity find(Long id)
+    public SonidoEntity find(Long id)
     {
-        COEntity entity = em.find(COEntity.class, id);
+        SonidoEntity entity = em.find(SonidoEntity.class, id);
         return entity;
     }
     
@@ -85,7 +86,7 @@ public class COPersistence {
      */
     public void delete(Long id)
     {
-        COEntity entity = em.find(COEntity.class, id);
+        SonidoEntity entity = em.find(SonidoEntity.class, id);
         em.remove(entity);
     }
 }

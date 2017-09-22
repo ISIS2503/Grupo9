@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistence;
+package main.persistenceManagers;
 
-import main.entities.TemperaturaEntity;
+
+import main.entities.PresionEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,7 +18,7 @@ import javax.persistence.Query;
  * @author b.gamba10
  */
 @Stateless
-public class TemperaturaPersistence {
+public class PresionPersistence {
     
     //----------------------------------------------------------------------------------------------------
     // ATRIBUTOS
@@ -32,24 +33,24 @@ public class TemperaturaPersistence {
     // METODOS
     //----------------------------------------------------------------------------------------------------
     /**
-     * Nuevo TemperaturaEntity
+     * Nuevo PresionEntity
      *
      * @param entity la entidad que se desea agregar
      * @return la entidad que fue agregada
      */
-    public TemperaturaEntity create(TemperaturaEntity entity)
+    public PresionEntity create(PresionEntity entity)
     {
         em.persist(entity);
         return entity;
     }
 
     /**
-     * modifica la información de un TemperaturaEntity
+     * modifica la información de un PresionEntity
      *
      * @param entity la entidad que se desea actualizar
      * @return la entidad que fue actualizada
      */
-    public TemperaturaEntity update(TemperaturaEntity entity)
+    public PresionEntity update(PresionEntity entity)
     {
         return em.merge(entity);
     }
@@ -57,24 +58,24 @@ public class TemperaturaPersistence {
     /**
      * Retorna una lista con todas las entidades (tuplas) de la tabla
      *
-     * @return lista de TemperaturaEntities
+     * @return lista de PresionEntities
      */
-    public List<TemperaturaEntity> findAll()
+    public List<PresionEntity> findAll()
     {
-        Query query = em.createQuery("select u from TemperaturaEntity u");
+        Query query = em.createQuery("select u from PresionEntity u");
         return query.getResultList();
     }
 
     /**
-     * retorna un TemperaturaEntity de acuerdo a un ID
+     * retorna un PresionEntity de acuerdo a un ID
      *
      * @param id el id de la entidad que se desea encontrar
      * @return null si no encuentra la entidad con el ID, la entidad si la
      * encuentra
      */
-    public TemperaturaEntity find(Long id)
+    public PresionEntity find(Long id)
     {
-        TemperaturaEntity entity = em.find(TemperaturaEntity.class, id);
+        PresionEntity entity = em.find(PresionEntity.class, id);
         return entity;
     }
     
@@ -85,7 +86,7 @@ public class TemperaturaPersistence {
      */
     public void delete(Long id)
     {
-        TemperaturaEntity entity = em.find(TemperaturaEntity.class, id);
+        PresionEntity entity = em.find(PresionEntity.class, id);
         em.remove(entity);
     }
 }
