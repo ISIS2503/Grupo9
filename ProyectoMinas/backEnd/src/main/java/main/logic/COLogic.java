@@ -2,11 +2,10 @@ package main.logic;
 
 
 import main.entities.COEntity;
-import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import java.util.Date;
 import java.util.List;
 import main.persistenceManagers.COPersistence;
 
@@ -33,7 +32,7 @@ public class COLogic {
      */
    
     public List<COEntity> getCOs() {
-        return persistence.findAll(); 
+        return persistence.all(); 
     }
     
     /**
@@ -44,7 +43,7 @@ public class COLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public COEntity getCO(Long id) {
+    public COEntity getCO(String id) {
         COEntity ue= persistence.find(id);
          if (ue == null)
          {
@@ -63,7 +62,7 @@ public class COLogic {
      */
     public COEntity createCO(COEntity entity) {
        
-        persistence.create(entity);
+        persistence.add(entity);
         return entity;
     }
     
@@ -90,7 +89,7 @@ public class COLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteCO(Long id){
+    public void deleteCO(String id){
        
         persistence.delete(id);
         

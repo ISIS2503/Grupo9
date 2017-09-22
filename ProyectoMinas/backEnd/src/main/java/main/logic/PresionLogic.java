@@ -1,14 +1,13 @@
 package main.logic;
 
 
-import main.entities.COEntity;
+
 import main.entities.MedidasEntity;
 import main.entities.PresionEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.MedidasPersistence;
 import main.persistenceManagers.PresionPersistence;
 
 
@@ -34,7 +33,7 @@ public class PresionLogic {
      */
    
     public List<PresionEntity> getPresiones() {
-        return persistence.findAll(); 
+        return persistence.all(); 
     }
     
     /**
@@ -45,7 +44,7 @@ public class PresionLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public PresionEntity getPresion(Long id) {
+    public PresionEntity getPresion(String id) {
         PresionEntity ue= persistence.find(id);
          if (ue == null)
          {
@@ -64,7 +63,7 @@ public class PresionLogic {
      */
     public MedidasEntity createPresion(PresionEntity entity) {
        
-        persistence.create(entity);
+        persistence.add(entity);
         return entity;
     }
     
@@ -87,7 +86,7 @@ public class PresionLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deletePresion(Long id){
+    public void deletePresion(String id){
        
         persistence.delete(id);
         
