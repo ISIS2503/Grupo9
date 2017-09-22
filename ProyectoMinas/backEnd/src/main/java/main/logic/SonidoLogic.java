@@ -1,16 +1,13 @@
 package main.logic;
 
 
-import main.entities.COEntity;
-import main.entities.MedidasEntity;
-import main.entities.PresionEntity;
+
 import main.entities.SonidoEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.MedidasPersistence;
-import main.persistenceManagers.PresionPersistence;
+
 import main.persistenceManagers.SonidoPersistence;
 
 
@@ -36,7 +33,7 @@ public class SonidoLogic {
      */
    
     public List<SonidoEntity> getSonidos() {
-        return persistence.findAll(); 
+        return persistence.all(); 
     }
     
     /**
@@ -47,7 +44,7 @@ public class SonidoLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public SonidoEntity getSonido(Long id) {
+    public SonidoEntity getSonido(String id) {
         SonidoEntity ue= persistence.find(id);
          if (ue == null)
          {
@@ -66,7 +63,7 @@ public class SonidoLogic {
      */
     public SonidoEntity createSonidos(SonidoEntity entity) {
        
-        persistence.create(entity);
+        persistence.add(entity);
         return entity;
     }
     
@@ -89,7 +86,7 @@ public class SonidoLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteSonidos(Long id){
+    public void deleteSonidos(String id){
        
         persistence.delete(id);
         

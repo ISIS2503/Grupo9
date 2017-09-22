@@ -1,18 +1,10 @@
 package main.logic;
 
-
-import main.entities.COEntity;
-import main.entities.MedidasEntity;
-import main.entities.PresionEntity;
-import main.entities.SonidoEntity;
 import main.entities.TemperaturaEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.MedidasPersistence;
-import main.persistenceManagers.PresionPersistence;
-import main.persistenceManagers.SonidoPersistence;
 import main.persistenceManagers.TemperaturaPersistence;
 
 
@@ -38,7 +30,7 @@ public class TemperaturaLogic {
      */
    
     public List<TemperaturaEntity> getTemperaturas() {
-        return persistence.findAll(); 
+        return persistence.all(); 
     }
     
     /**
@@ -49,7 +41,7 @@ public class TemperaturaLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public TemperaturaEntity getTemperatura(Long id) {
+    public TemperaturaEntity getTemperatura(String id) {
         TemperaturaEntity ue= persistence.find(id);
          if (ue == null)
          {
@@ -68,7 +60,7 @@ public class TemperaturaLogic {
      */
     public TemperaturaEntity createTemperaturas(TemperaturaEntity entity) {
        
-        persistence.create(entity);
+        persistence.add(entity);
         return entity;
     }
     
@@ -91,7 +83,7 @@ public class TemperaturaLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteTemperatura(Long id){
+    public void deleteTemperatura(String id){
        
         persistence.delete(id);
         

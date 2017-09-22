@@ -32,7 +32,7 @@ public class MedidasLogic {
      */
    
     public List<MedidasEntity> getMedidas() {
-        return persistence.findAll(); 
+        return persistence.all(); 
     }
     
     /**
@@ -43,7 +43,7 @@ public class MedidasLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public MedidasEntity getMedida(Long id) {
+    public MedidasEntity getMedida(String id) {
         MedidasEntity ue= persistence.find(id);
          if (ue == null)
          {
@@ -62,7 +62,7 @@ public class MedidasLogic {
      */
     public MedidasEntity createMedida(COEntity entity) {
        
-        persistence.create(entity);
+        persistence.add(entity);
         return entity;
     }
     
@@ -89,7 +89,7 @@ public class MedidasLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deleteMedida(Long id){
+    public void deleteMedida(String id){
        
         persistence.delete(id);
         
