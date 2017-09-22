@@ -3,12 +3,12 @@ package main.logic;
 
 
 import main.entities.MedidasEntity;
-import main.entities.PresionEntity;
+import main.entities.IluminacionEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.PresionPersistence;
+import main.persistenceManagers.IluminacionPersistence;
 
 
 /**
@@ -16,14 +16,14 @@ import main.persistenceManagers.PresionPersistence;
  * @author n.acevedos
  */
 @Stateless
-public class PresionLogic {
+public class IluminacionLogic {
     
-    public PresionLogic()
+    public IluminacionLogic()
             {
                 
             }
     
-    @Inject private PresionPersistence persistence;
+    @Inject private IluminacionPersistence persistence;
     
     /**
      * Obtiene la lista de los registros de Usuario.
@@ -32,7 +32,7 @@ public class PresionLogic {
      * 
      */
    
-    public List<PresionEntity> getPresiones() {
+    public List<IluminacionEntity> getIluminaciones() {
         return persistence.all(); 
     }
     
@@ -44,8 +44,8 @@ public class PresionLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      *
      */
-    public PresionEntity getPresion(String id) {
-        PresionEntity ue= persistence.find(id);
+    public IluminacionEntity getIluminacion(String id) {
+        IluminacionEntity ue= persistence.find(id);
          if (ue == null)
          {
              System.out.println("No existe un usuario con ese id"); 
@@ -61,7 +61,7 @@ public class PresionLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      * @generated
      */
-    public MedidasEntity createPresion(PresionEntity entity) {
+    public MedidasEntity createIluminacion(IluminacionEntity entity) {
        
         persistence.add(entity);
         return entity;
@@ -75,7 +75,7 @@ public class PresionLogic {
      * 
      */
     // TODO: revisar las validaciones al momento de actualizar
-    public MedidasEntity updatePresion(PresionEntity entity) {
+    public MedidasEntity updateIluminacion(IluminacionEntity entity) {
         return persistence.update(entity);
     }
     
@@ -86,7 +86,7 @@ public class PresionLogic {
      *
      */
     // TODO: revisar las validaciones al momento de borrar
-    public void deletePresion(String id){
+    public void deleteIluminacion(String id){
        
         persistence.delete(id);
         
