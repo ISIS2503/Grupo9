@@ -5,16 +5,16 @@
  */
 package main.persistenceManagers;
 
-import main.entities.PresionEntity;
+import main.entities.IluminacionEntity;
 import main.persistence.Persistencer;
 
 /**
  *
  * @author b.gamba10
  */
-public class PresionPersistence extends Persistencer<PresionEntity, String>{
+public class IluminacionPersistence extends Persistencer<IluminacionEntity, String>{
 
-    public PresionPersistence(){
-        this.entityClass = PresionEntity.class;
+    public IluminacionPersistence(){
+        this.entityClass = IluminacionEntity.class;
     }
 }

@@ -29,7 +29,7 @@ public class MedidasEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected long id;
+    protected String ubicacion;
     
     protected int valor;
     
@@ -60,6 +60,14 @@ public class MedidasEntity implements Serializable{
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+    
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
     
     

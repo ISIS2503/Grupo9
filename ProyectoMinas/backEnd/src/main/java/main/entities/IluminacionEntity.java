@@ -9,6 +9,6 @@ package main.entities;
  *
  * @author jm.dominguez
  */
-public class PresionEntity extends MedidasEntity {
+public class IluminacionEntity extends MedidasEntity {
     
 }
