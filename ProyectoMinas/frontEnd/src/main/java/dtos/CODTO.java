@@ -5,10 +5,65 @@
  */
 package dtos;
 
-/**
- *
- * @author b.gamba10
- */
+import java.util.Date;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement
 public class CODTO {
+
+    public CODTO() {
+    }
+    
+    private String ubicacion;
+    
+    private int valor;
+    
+    private String unidad;
+    
+    private Date fecha; 
+    
+    public CODTO(COEntity entity){
+        if(entity != null)
+        {
+            this.ubicacion = CO
+        }
+        
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public String getUnidad() {
+        return unidad;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     
 }
