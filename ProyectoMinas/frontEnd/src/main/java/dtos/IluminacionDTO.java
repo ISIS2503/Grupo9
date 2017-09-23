@@ -6,9 +6,6 @@
 package dtos;
 
 import java.util.Date;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import main.entities.IluminacionEntity;
 

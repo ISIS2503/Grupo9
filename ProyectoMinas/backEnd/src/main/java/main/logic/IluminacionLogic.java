@@ -61,7 +61,7 @@ public class IluminacionLogic {
      * @throws co.edu.uniandes.csw.paseos.exceptions.BusinessLogicException
      * @generated
      */
-    public MedidasEntity createIluminacion(IluminacionEntity entity) {
+    public IluminacionEntity createIluminacion(IluminacionEntity entity) {
        
         persistence.add(entity);
         return entity;
