@@ -4,12 +4,55 @@
  * and open the template in the editor.
  */
 package resouces;
+import dtos.CODTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
 
-/**
- *
- * @author b.gamba10
- */
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import javax.ws.rs.core.MediaType;
+import main.entities.COEntity;
+import main.logic.COLogic;
+
+
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/temperatura")
 public class COResource {
-
-    COEntity
+    
+    public COResource()
+    {
+        
+    }
+    
+     @Inject 
+     private COLogic temperaturaLogic; 
+     
+     private List<CODTO> listEntity2DTO(List<COEntity> entityList){
+        List<CODTO> list = new ArrayList<>();
+        for (COEntity entity : entityList) {
+            list.add(new CODTO(entity));
+        }
+        return list;
+    }
+     
+    @GET
+    public List<CODTO> getCO() {
+        
+        return listEntity2DTO(temperaturaLogic.getCOs());
+    }  
+    
+    @POST
+    public CODTO createCO(CODTO dto){
+        return new CODTO(temperaturaLogic.createCO(dto.toEntity()));
+    }
+    
+    
+    
+     
 }
