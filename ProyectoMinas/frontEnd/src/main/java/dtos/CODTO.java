@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import main.entities.COEntity;
 
 
 @XmlRootElement
@@ -29,10 +30,14 @@ public class CODTO {
     public CODTO(COEntity entity){
         if(entity != null)
         {
-            this.ubicacion = CO
+            this.ubicacion = entity.getUbicacion();
+            this.valor = entity.getValor();
+            this.fecha = entity.getFecha();
+            this.unidad = entity.getUnidad();
         }
         
     }
+    
 
     public String getUbicacion() {
         return ubicacion;
