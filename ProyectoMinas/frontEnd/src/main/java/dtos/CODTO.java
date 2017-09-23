@@ -5,10 +5,14 @@
  */
 package dtos;
 
+import main.entities.COEntity;
+
 /**
  *
  * @author b.gamba10
  */
 public class CODTO {
+    
+    private COEntity s;
     
 }
