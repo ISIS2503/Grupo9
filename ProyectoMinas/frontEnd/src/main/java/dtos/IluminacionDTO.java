@@ -11,14 +11,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import main.entities.IluminacionEntity;
-import main.entities.SonidoEntity;
 
 
 
 @XmlRootElement
-public class SonidoDTO {
+public class IluminacionDTO {
 
-    public SonidoDTO (){
+    public IluminacionDTO (){
     }
     
     private String ubicacion;
@@ -29,7 +28,7 @@ public class SonidoDTO {
     
     private Date fecha; 
     
-    public SonidoDTO(SonidoEntity entity){
+    public IluminacionDTO(IluminacionEntity entity){
         if(entity != null)
         {
             this.ubicacion = entity.getUbicacion();
