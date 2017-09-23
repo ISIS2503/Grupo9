@@ -5,10 +5,24 @@
  */
 package dtos;
 
+import java.util.Date;
+
 /**
  *
  * @author b.gamba10
  */
 public class MedidasDTO {
+
+    public MedidasDTO() {
+    }
     
+    
+    
+    private String ubicacion;
+    
+    private int valor;
+    
+    private String unidad;
+    
+    private Date fecha; 
 }
