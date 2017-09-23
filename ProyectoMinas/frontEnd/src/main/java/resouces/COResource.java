@@ -10,5 +10,6 @@ package resouces;
  * @author b.gamba10
  */
 public class COResource {
-    
+
+    COEntity
 }
