@@ -11,6 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import main.entities.COEntity;
+import main.entities.IluminacionEntity;
 
 
 @XmlRootElement
@@ -38,6 +39,15 @@ public class CODTO {
         
     }
     
+    public COEntity toEntity(){
+       COEntity entity = new COEntity();
+       entity.setUbicacion(this.ubicacion);
+       entity.setValor(this.valor);
+       entity.setFecha(this.fecha);
+       entity.setUnidad(this.unidad);
+       return entity;
+    }
+
 
     public String getUbicacion() {
         return ubicacion;

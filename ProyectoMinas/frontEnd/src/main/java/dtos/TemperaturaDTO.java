@@ -39,7 +39,15 @@ public class TemperaturaDTO {
         }
         
     }
-    
+    public TemperaturaEntity toEntity(){
+       TemperaturaEntity entity = new TemperaturaEntity();
+       entity.setUbicacion(this.ubicacion);
+       entity.setValor(this.valor);
+       entity.setFecha(this.fecha);
+       entity.setUnidad(this.unidad);
+       return entity;
+    }
+
 
     public String getUbicacion() {
         return ubicacion;

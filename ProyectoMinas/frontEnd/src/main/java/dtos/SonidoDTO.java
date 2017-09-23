@@ -39,7 +39,15 @@ public class SonidoDTO {
         }
         
     }
-    
+    public SonidoEntity toEntity(){
+       SonidoEntity entity = new SonidoEntity();
+       entity.setUbicacion(this.ubicacion);
+       entity.setValor(this.valor);
+       entity.setFecha(this.fecha);
+       entity.setUnidad(this.unidad);
+       return entity;
+    }
+
 
     public String getUbicacion() {
         return ubicacion;

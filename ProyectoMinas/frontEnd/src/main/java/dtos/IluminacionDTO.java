@@ -39,6 +39,14 @@ public class IluminacionDTO {
         
     }
     
+    public IluminacionEntity toEntity(){
+       IluminacionEntity entity = new IluminacionEntity();
+       entity.setUbicacion(this.ubicacion);
+       entity.setValor(this.valor);
+       entity.setFecha(this.fecha);
+       entity.setUnidad(this.unidad);
+       return entity;
+    }
 
     public String getUbicacion() {
         return ubicacion;
