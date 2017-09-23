@@ -22,7 +22,7 @@ import main.logic.COLogic;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/temperatura")
+@Path("/co")
 public class COResource {
     
     public COResource()

@@ -22,7 +22,7 @@ import main.logic.SonidoLogic;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/temperatura")
+@Path("/sonido")
 public class SonidoResource {
     
     public SonidoResource()
