@@ -5,6 +5,7 @@
  */
 package main.persistenceManagers;
 
+import javax.ejb.Stateless;
 import main.entities.IluminacionEntity;
 import main.persistence.Persistencer;
 
@@ -12,6 +13,7 @@ import main.persistence.Persistencer;
  *
  * @author b.gamba10
  */
+//@Stateless
 public class IluminacionPersistence extends Persistencer<IluminacionEntity, String>{
 
     public IluminacionPersistence(){

@@ -12,6 +12,7 @@ package main.persistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
@@ -22,6 +23,7 @@ import org.hibernate.Criteria;
  * @param <T>
  * @param <PK>
  */
+//@Stateless
 public class Persistencer<T, PK> {
 
     private static final Logger LOG = Logger.getLogger(Persistencer.class.getName());

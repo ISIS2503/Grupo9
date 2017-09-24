@@ -5,6 +5,7 @@
  */
 package main.persistenceManagers;
 
+import javax.ejb.Stateless;
 import main.entities.TemperaturaEntity;
 import main.persistence.Persistencer;
 
@@ -12,6 +13,7 @@ import main.persistence.Persistencer;
  *
  * @author b.gamba10
  */
+//@Stateless
 public class TemperaturaPersistence extends Persistencer<TemperaturaEntity, String>{
 
     public TemperaturaPersistence(){
