@@ -1,11 +1,13 @@
 package co.edu.uniandes.isis2503.nosqljpa.logic;
 
-import main.entities.TemperaturaEntity;
+
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
+import co.edu.uniandes.isis2503.nosqljpa.persistence.TemperaturaPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.TemperaturaPersistence;
+
 
 
 /**

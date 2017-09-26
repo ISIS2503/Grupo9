@@ -2,13 +2,14 @@ package co.edu.uniandes.isis2503.nosqljpa.logic;
 
 
 
-import main.entities.MedidasEntity;
-import main.entities.IluminacionEntity;
+
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
+import co.edu.uniandes.isis2503.nosqljpa.persistence.IluminacionPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import main.persistenceManagers.IluminacionPersistence;
+
 
 
 /**
@@ -74,7 +75,7 @@ public class IluminacionLogic {
      * 
      */
     // TODO: revisar las validaciones al momento de actualizar
-    public MedidasEntity updateIluminacion(IluminacionEntity entity) {
+    public IluminacionEntity updateIluminacion(IluminacionEntity entity) {
         return persistence.update(entity);
     }
     

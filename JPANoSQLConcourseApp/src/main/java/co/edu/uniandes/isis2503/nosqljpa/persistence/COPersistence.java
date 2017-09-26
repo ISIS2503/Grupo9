@@ -5,8 +5,9 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
-import main.entities.COEntity;
-import main.persistence.Persistencer;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
+
+
 
 /**
  *

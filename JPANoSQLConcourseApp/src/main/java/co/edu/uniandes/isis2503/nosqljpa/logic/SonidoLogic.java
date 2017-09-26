@@ -2,13 +2,14 @@ package co.edu.uniandes.isis2503.nosqljpa.logic;
 
 
 
-import main.entities.SonidoEntity;
+
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.SonidoEntity;
+import co.edu.uniandes.isis2503.nosqljpa.persistence.SonidoPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 
-import main.persistenceManagers.SonidoPersistence;
 
 
 /**

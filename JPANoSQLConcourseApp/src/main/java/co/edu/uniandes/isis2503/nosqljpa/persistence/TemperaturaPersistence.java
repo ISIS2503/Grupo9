@@ -5,9 +5,10 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
 import javax.ejb.Stateless;
-import main.entities.TemperaturaEntity;
-import main.persistence.Persistencer;
+
+
 
 /**
  *

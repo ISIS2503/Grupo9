@@ -1,13 +1,14 @@
 package co.edu.uniandes.isis2503.nosqljpa.logic;
 
 
-import main.entities.COEntity;
-import main.entities.MedidasEntity;
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
 
-import main.persistenceManagers.MedidasPersistence;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.MedidasEntity;
+import co.edu.uniandes.isis2503.nosqljpa.persistence.MedidasPersistence;
+import java.util.List;
+
+
+
 
 
 /**
