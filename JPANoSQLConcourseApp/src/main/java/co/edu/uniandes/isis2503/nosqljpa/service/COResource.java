@@ -9,6 +9,7 @@ import co.edu.uniandes.isis2503.nosqljpa.model.dto.CODTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.inject.Inject;
 
 import javax.ws.rs.Consumes;
@@ -48,6 +49,10 @@ public class COResource {
     
     @POST
     public CODTO createCO(CODTO dto){
+        if(dto.getId() == null)
+        {
+            dto.setId(UUID.randomUUID().toString());
+        }
         return new CODTO(coLogic.createCO(dto.toEntity()));
     }
     

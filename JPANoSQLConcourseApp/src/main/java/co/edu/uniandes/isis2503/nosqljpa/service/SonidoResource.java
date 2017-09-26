@@ -9,6 +9,7 @@ import co.edu.uniandes.isis2503.nosqljpa.model.dto.SonidoDTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.SonidoEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.inject.Inject;
 
 import javax.ws.rs.Consumes;
@@ -48,6 +49,10 @@ public class SonidoResource {
     
     @POST
     public SonidoDTO createSonido(SonidoDTO dto){
+        if(dto.getId() == null)
+        {
+            dto.setId(UUID.randomUUID().toString());
+        }
         return new SonidoDTO(temperaturaLogic.createSonidos(dto.toEntity()));
     }
     

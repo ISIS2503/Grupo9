@@ -9,6 +9,7 @@ import co.edu.uniandes.isis2503.nosqljpa.model.dto.IluminacionDTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.inject.Inject;
 
 import javax.ws.rs.Consumes;
@@ -48,6 +49,10 @@ public class IluminacionResource {
     
     @POST
     public IluminacionDTO createIluminacion(IluminacionDTO dto){
+        if(dto.getId() == null)
+        {
+            dto.setId(UUID.randomUUID().toString());
+        }
         return new IluminacionDTO(iluminacionLogic.createIluminacion(dto.toEntity()));
     }
     

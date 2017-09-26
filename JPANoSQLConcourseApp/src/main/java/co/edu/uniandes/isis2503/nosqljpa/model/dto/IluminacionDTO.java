@@ -17,6 +17,7 @@ public class IluminacionDTO {
 
     public IluminacionDTO (){
     }
+    private String id;
     
     private String ubicacion;
     
@@ -29,6 +30,7 @@ public class IluminacionDTO {
     public IluminacionDTO(IluminacionEntity entity){
         if(entity != null)
         {
+            this.id = entity.getId();
             this.ubicacion = entity.getUbicacion();
             this.valor = entity.getValor();
             this.fecha = entity.getFecha();
@@ -39,6 +41,7 @@ public class IluminacionDTO {
     
     public IluminacionEntity toEntity(){
        IluminacionEntity entity = new IluminacionEntity();
+       entity.setId(this.getId());
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
@@ -76,6 +79,20 @@ public class IluminacionDTO {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
     
 }

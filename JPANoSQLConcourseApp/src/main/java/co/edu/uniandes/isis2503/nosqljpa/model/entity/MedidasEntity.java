@@ -28,13 +28,14 @@ import javax.persistence.TemporalType;
 public class MedidasEntity implements Serializable{
     
     @Id
+    private String id;
+    
     protected String ubicacion;
     
     protected int valor;
     
     protected String unidad;
     
-    @Id
     @Temporal(TemporalType.DATE)
     protected Date fecha; 
 
@@ -68,6 +69,16 @@ public class MedidasEntity implements Serializable{
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+    
+    public String getId()
+    {
+        return id;
+    }
+    
+    public void setId(String id)
+    {
+        this.id = id;
     }
     
     

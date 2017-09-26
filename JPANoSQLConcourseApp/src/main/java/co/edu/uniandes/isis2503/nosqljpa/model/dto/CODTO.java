@@ -15,6 +15,7 @@ public class CODTO {
 
     public CODTO() {
     }
+    private String id;
     
     private String ubicacion;
     
@@ -27,6 +28,7 @@ public class CODTO {
     public CODTO(COEntity entity){
         if(entity != null)
         {
+            this.id = entity.getId();
             this.ubicacion = entity.getUbicacion();
             this.valor = entity.getValor();
             this.fecha = entity.getFecha();
@@ -37,6 +39,7 @@ public class CODTO {
     
     public COEntity toEntity(){
        COEntity entity = new COEntity();
+       entity.setId(this.id);
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
@@ -75,6 +78,16 @@ public class CODTO {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+    
+    public String getId()
+    {
+        return id;
+    }
+    
+    public void setId(String id)
+    {
+        this.id = id;
     }
     
 }

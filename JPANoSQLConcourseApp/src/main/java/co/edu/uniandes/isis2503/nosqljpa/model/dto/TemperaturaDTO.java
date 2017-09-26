@@ -21,6 +21,8 @@ public class TemperaturaDTO {
     public TemperaturaDTO (){
     }
     
+    private String id;
+    
     private String ubicacion;
     
     private int valor;
@@ -32,6 +34,7 @@ public class TemperaturaDTO {
     public TemperaturaDTO(TemperaturaEntity entity){
         if(entity != null)
         {
+            this.id = entity.getId();
             this.ubicacion = entity.getUbicacion();
             this.valor = entity.getValor();
             this.fecha = entity.getFecha();
@@ -41,6 +44,7 @@ public class TemperaturaDTO {
     }
     public TemperaturaEntity toEntity(){
        TemperaturaEntity entity = new TemperaturaEntity();
+       entity.setId(this.getId());
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
@@ -79,6 +83,20 @@ public class TemperaturaDTO {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
     
 }
