@@ -1,4 +1,4 @@
-package co.edu.uniandes.isis2503.nosqljpa.persistence;
+package co.edu.uniandes.isis2503.nosqljpa.logic;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -8,8 +8,9 @@ package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
 
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
 import java.util.Date;
+import static junit.framework.Assert.assertEquals;
 import junit.framework.TestCase;
 
 
@@ -18,10 +19,10 @@ import junit.framework.TestCase;
  * @author n.acevedos
  */
 
-public class TemperaturaPersistenceTest extends TestCase{
+public class COLogicTest extends TestCase{
     
    
-    private TemperaturaPersistence temperaturaPersistence;
+    private COLogic coLogic;
     private Date fecha; 
     private String ubicacion; 
     private int valor; 
@@ -33,59 +34,59 @@ public class TemperaturaPersistenceTest extends TestCase{
      */
     protected void setUp()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        coLogic = new COLogic(); 
+        COEntity entity = new COEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
-        valor = 23; 
+        valor = 223; 
         
         entity.setFecha(fecha);
-        entity.setUnidad("C");
+        entity.setUnidad("ppm");
         entity.setUbicacion(ubicacion);
         entity.setValor(valor);
         
-        temperaturaPersistence.add(entity);
+        coLogic.createCO(entity);
     }
     
      protected void setUp1()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        coLogic = new COLogic(); 
+        COEntity entity = new COEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de juan"); 
         valor = 16; 
         entity.setFecha(fecha);
-        entity.setUnidad("C");
+        entity.setUnidad("ppm");
         entity.setUbicacion(ubicacion);
         entity.setValor(valor);
         
-        TemperaturaEntity entity1 = new TemperaturaEntity(); 
+        COEntity entity1 = new COEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
         valor = 23; 
         entity1.setFecha(fecha);
-        entity1.setUnidad("C");
+        entity1.setUnidad("ppm");
         entity1.setUbicacion(ubicacion);
         entity1.setValor(valor);
         
-        temperaturaPersistence.add(entity);
-        temperaturaPersistence.add(entity1);
+        coLogic.createCO(entity);
+        coLogic.createCO(entity1);
     }
    
-     public void testCrearYGetTemperaturaPersistence()
+     public void testCrearYGetCOLogic()
      {
          setUp();
-         int numero = temperaturaPersistence.all().size();
+         int numero = coLogic.getCOs().size();
          assertEquals("Debe haber una entidad", 1, numero); 
      }
      
-     public void testCrearYGetTemperaturaPersistence2()
+     public void testCrearYGetCOLogic2()
      {
          setUp1();
-         int numero = temperaturaPersistence.all().size();
+         int numero = coLogic.getCOs().size();
          assertEquals("Debe haber dos entidades", 2, numero); 
      }
 }
