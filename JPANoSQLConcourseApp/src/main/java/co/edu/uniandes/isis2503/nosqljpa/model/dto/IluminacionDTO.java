@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
+package co.edu.uniandes.isis2503.nosqljpa.model.dto;
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class TemperaturaDTO {
+public class IluminacionDTO {
 
-    public TemperaturaDTO (){
+    public IluminacionDTO (){
     }
     
     private String ubicacion;
@@ -26,7 +26,7 @@ public class TemperaturaDTO {
     
     private Date fecha; 
     
-    public TemperaturaDTO(TemperaturaEntity entity){
+    public IluminacionDTO(IluminacionEntity entity){
         if(entity != null)
         {
             this.ubicacion = entity.getUbicacion();
@@ -36,15 +36,15 @@ public class TemperaturaDTO {
         }
         
     }
-    public TemperaturaEntity toEntity(){
-       TemperaturaEntity entity = new TemperaturaEntity();
+    
+    public IluminacionEntity toEntity(){
+       IluminacionEntity entity = new IluminacionEntity();
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
        entity.setUnidad(this.unidad);
        return entity;
     }
-
 
     public String getUbicacion() {
         return ubicacion;

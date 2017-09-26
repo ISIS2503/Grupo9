@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
+package co.edu.uniandes.isis2503.nosqljpa.model.dto;
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-
-
 @XmlRootElement
-public class IluminacionDTO {
+public class CODTO {
 
-    public IluminacionDTO (){
+    public CODTO() {
     }
     
     private String ubicacion;
@@ -26,7 +24,7 @@ public class IluminacionDTO {
     
     private Date fecha; 
     
-    public IluminacionDTO(IluminacionEntity entity){
+    public CODTO(COEntity entity){
         if(entity != null)
         {
             this.ubicacion = entity.getUbicacion();
@@ -37,14 +35,15 @@ public class IluminacionDTO {
         
     }
     
-    public IluminacionEntity toEntity(){
-       IluminacionEntity entity = new IluminacionEntity();
+    public COEntity toEntity(){
+       COEntity entity = new COEntity();
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
        entity.setUnidad(this.unidad);
        return entity;
     }
+
 
     public String getUbicacion() {
         return ubicacion;

@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 import co.edu.uniandes.isis2503.nosqljpa.logic.TemperaturaLogic;
-import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.TemperaturaDTO;
+import co.edu.uniandes.isis2503.nosqljpa.model.dto.TemperaturaDTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
 import java.util.ArrayList;
 import java.util.List;

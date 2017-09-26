@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
+package co.edu.uniandes.isis2503.nosqljpa.model.dto;
 
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.SonidoEntity;
 import java.util.Date;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 

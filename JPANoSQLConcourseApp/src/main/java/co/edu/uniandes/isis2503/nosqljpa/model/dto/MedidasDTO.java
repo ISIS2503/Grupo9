@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
+package co.edu.uniandes.isis2503.nosqljpa.model.dto;
 
 import java.util.Date;
 

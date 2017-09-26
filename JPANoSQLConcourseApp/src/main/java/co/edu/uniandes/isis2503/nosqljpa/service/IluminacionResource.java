@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 import co.edu.uniandes.isis2503.nosqljpa.logic.IluminacionLogic;
-import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.IluminacionDTO;
+import co.edu.uniandes.isis2503.nosqljpa.model.dto.IluminacionDTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
 import java.util.ArrayList;
 import java.util.List;

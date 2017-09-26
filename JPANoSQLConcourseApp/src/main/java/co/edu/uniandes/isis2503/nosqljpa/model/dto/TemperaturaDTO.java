@@ -3,18 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
+package co.edu.uniandes.isis2503.nosqljpa.model.dto;
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
 import java.util.Date;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 
-@XmlRootElement
-public class CODTO {
 
-    public CODTO() {
+@XmlRootElement
+public class TemperaturaDTO {
+
+    public TemperaturaDTO (){
     }
     
     private String ubicacion;
@@ -25,7 +29,7 @@ public class CODTO {
     
     private Date fecha; 
     
-    public CODTO(COEntity entity){
+    public TemperaturaDTO(TemperaturaEntity entity){
         if(entity != null)
         {
             this.ubicacion = entity.getUbicacion();
@@ -35,9 +39,8 @@ public class CODTO {
         }
         
     }
-    
-    public COEntity toEntity(){
-       COEntity entity = new COEntity();
+    public TemperaturaEntity toEntity(){
+       TemperaturaEntity entity = new TemperaturaEntity();
        entity.setUbicacion(this.ubicacion);
        entity.setValor(this.valor);
        entity.setFecha(this.fecha);
