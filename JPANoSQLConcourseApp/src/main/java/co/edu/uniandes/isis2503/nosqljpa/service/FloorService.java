@@ -46,7 +46,7 @@ import javax.ws.rs.core.Response;
  *
  * @author ca.mendoza968
  */
-@Path("/floors")
+@Path("/pisos")
 @Produces(MediaType.APPLICATION_JSON)
 public class FloorService {
 

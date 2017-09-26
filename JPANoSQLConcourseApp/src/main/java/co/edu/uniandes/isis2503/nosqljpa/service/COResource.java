@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package co.edu.uniandes.isis2503.nosqljpa.service;
+import co.edu.uniandes.isis2503.nosqljpa.logic.COLogic;
+import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.CODTO;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import javax.ws.rs.core.MediaType;
+
+
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/co")
+public class COResource {
+    
+    public COResource()
+    {
+        
+    }
+    
+     private COLogic temperaturaLogic; 
+     
+     private List<CODTO> listEntity2DTO(List<COEntity> entityList){
+        List<CODTO> list = new ArrayList<>();
+        for (COEntity entity : entityList) {
+            list.add(new CODTO(entity));
+        }
+        return list;
+    }
+     
+    @GET
+    public List<CODTO> getCO() {
+        
+        return listEntity2DTO(temperaturaLogic.getCOs());
+    }  
+    
+    @POST
+    public CODTO createCO(CODTO dto){
+        return new CODTO(temperaturaLogic.createCO(dto.toEntity()));
+    }
+    
+    
+    
+     
+}
