@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import java.util.List;
+import java.util.UUID;
 
 
 
@@ -64,7 +65,10 @@ public class COLogic {
      * @generated
      */
     public COEntity createCO(COEntity entity) {
-       
+//        if(entity.getId() == null)
+//        {
+//            entity.setId(UUID.randomUUID().toString());
+//        }
         persistence.add(entity);
         return entity;
     }

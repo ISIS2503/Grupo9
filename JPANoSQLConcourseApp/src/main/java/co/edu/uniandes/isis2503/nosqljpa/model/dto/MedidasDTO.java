@@ -16,7 +16,7 @@ public class MedidasDTO {
     public MedidasDTO() {
     }
     
-    
+    private String id;
     
     private String ubicacion;
     
