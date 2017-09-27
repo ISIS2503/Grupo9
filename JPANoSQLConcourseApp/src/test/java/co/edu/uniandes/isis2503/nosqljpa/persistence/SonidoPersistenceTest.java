@@ -8,7 +8,7 @@ package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
 
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.SonidoEntity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +20,10 @@ import junit.framework.TestCase;
  * @author n.acevedos
  */
 
-public class TemperaturaPersistenceTest extends TestCase{
+public class SonidoPersistenceTest extends TestCase{
     
    
-    private TemperaturaPersistence temperaturaPersistence;
+    private SonidoPersistence sonidoPersistence;
     private Date fecha; 
     private String ubicacion; 
     private int valor; 
@@ -35,26 +35,26 @@ public class TemperaturaPersistenceTest extends TestCase{
      */
     protected void setUp()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        sonidoPersistence = new SonidoPersistence(); 
+        SonidoEntity entity = new SonidoEntity(); 
         
         fecha = new Date(); 
-        ubicacion = ("La casa de bibi"); 
+        ubicacion = ("casita"); 
         valor = 23; 
         
-        entity.setId("7");
+        entity.setId("734");
         entity.setFecha(fecha);
         entity.setUnidad("C");
         entity.setUbicacion(ubicacion);
         entity.setValor(valor);
         
-        temperaturaPersistence.add(entity);
+        sonidoPersistence.add(entity);
     }
     
      protected void setUp1()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        sonidoPersistence = new SonidoPersistence(); 
+        SonidoEntity entity = new SonidoEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de juan"); 
@@ -66,7 +66,7 @@ public class TemperaturaPersistenceTest extends TestCase{
         entity.setUbicacion(ubicacion);
         entity.setValor(valor);
         
-        TemperaturaEntity entity1 = new TemperaturaEntity(); 
+        SonidoEntity entity1 = new SonidoEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
@@ -78,43 +78,43 @@ public class TemperaturaPersistenceTest extends TestCase{
         entity1.setUbicacion(ubicacion);
         entity1.setValor(valor);
         
-        temperaturaPersistence.add(entity);
-        temperaturaPersistence.add(entity1);
+        sonidoPersistence.add(entity);
+        sonidoPersistence.add(entity1);
     }
      
    
-     public void testCrearYGetTemperaturaPersistence()
+     public void testCrearYGetSonidoPersistence()
      {
          setUp();
-         int numero = temperaturaPersistence.all().size();
+         int numero = sonidoPersistence.all().size();
          assertEquals("Debe haber una entidad", 1, numero); 
      }
      
-     public void testCrearYGetTemperaturaPersistence2()
+     public void testCrearYGetSonidoPersistence2()
      {
         setUp();
         
-        TemperaturaPersistence temperaturaPersistence1 = new TemperaturaPersistence(); 
+        SonidoPersistence sonidoPersistence1 = new SonidoPersistence(); 
         
-        TemperaturaEntity entity1 = new TemperaturaEntity(); 
+        SonidoEntity entity1 = new SonidoEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
         valor = 23; 
         
-        entity1.setId("252525");
+        entity1.setId("2525");
         entity1.setFecha(fecha);
-        entity1.setUnidad("C");
+        entity1.setUnidad("dB");
         entity1.setUbicacion(ubicacion);
         entity1.setValor(valor);
         
        
-        temperaturaPersistence1.add(entity1);
+        sonidoPersistence1.add(entity1);
          
-         List<TemperaturaEntity> lista = new ArrayList();
-         List<TemperaturaEntity> lista1 = new ArrayList();
-         lista = temperaturaPersistence.all();
-         lista1 = temperaturaPersistence.all();
+         List<SonidoEntity> lista = new ArrayList();
+         List<SonidoEntity> lista1 = new ArrayList();
+         lista = sonidoPersistence.all();
+         lista1 = sonidoPersistence.all();
          int numero = lista.size() + lista1.size();
          assertEquals("Debe haber dos entidades", 2, numero); 
      }
