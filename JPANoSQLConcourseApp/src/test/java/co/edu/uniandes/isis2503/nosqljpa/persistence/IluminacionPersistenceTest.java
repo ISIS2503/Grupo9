@@ -8,7 +8,7 @@ package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
 
 
-import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
+import co.edu.uniandes.isis2503.nosqljpa.model.entity.IluminacionEntity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +20,10 @@ import junit.framework.TestCase;
  * @author n.acevedos
  */
 
-public class TemperaturaPersistenceTest extends TestCase{
+public class IluminacionPersistenceTest extends TestCase{
     
    
-    private TemperaturaPersistence temperaturaPersistence;
+    private IluminacionPersistence ilimunacionPersistence;
     private Date fecha; 
     private String ubicacion; 
     private int valor; 
@@ -35,26 +35,26 @@ public class TemperaturaPersistenceTest extends TestCase{
      */
     protected void setUp()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        ilimunacionPersistence = new IluminacionPersistence(); 
+        IluminacionEntity entity = new IluminacionEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
         valor = 23; 
         
-        entity.setId("7");
-        entity.setFecha(fecha);
-        entity.setUnidad("C");
-        entity.setUbicacion(ubicacion);
+        entity.setId("37");
+        entity.setFecha(null);
+        entity.setUnidad("lux");
+        entity.setUbicacion("home");
         entity.setValor(valor);
         
-        temperaturaPersistence.add(entity);
+        ilimunacionPersistence.add(entity);
     }
     
      protected void setUp1()
     {
-        temperaturaPersistence = new TemperaturaPersistence(); 
-        TemperaturaEntity entity = new TemperaturaEntity(); 
+        ilimunacionPersistence = new IluminacionPersistence(); 
+        IluminacionEntity entity = new IluminacionEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de juan"); 
@@ -66,7 +66,7 @@ public class TemperaturaPersistenceTest extends TestCase{
         entity.setUbicacion(ubicacion);
         entity.setValor(valor);
         
-        TemperaturaEntity entity1 = new TemperaturaEntity(); 
+        IluminacionEntity entity1 = new IluminacionEntity(); 
         
         fecha = new Date(); 
         ubicacion = ("La casa de bibi"); 
@@ -78,43 +78,43 @@ public class TemperaturaPersistenceTest extends TestCase{
         entity1.setUbicacion(ubicacion);
         entity1.setValor(valor);
         
-        temperaturaPersistence.add(entity);
-        temperaturaPersistence.add(entity1);
+        ilimunacionPersistence.add(entity);
+        ilimunacionPersistence.add(entity1);
     }
      
    
-     public void testCrearYGetTemperaturaPersistence()
+     public void testCrearYGetIluminacionPersistence()
      {
          setUp();
-         int numero = temperaturaPersistence.all().size();
+         int numero = ilimunacionPersistence.all().size();
          assertEquals("Debe haber una entidad", 1, numero); 
      }
      
-     public void testCrearYGetTemperaturaPersistence2()
+     public void testCrearYGetIluminacionPersistence2()
      {
         setUp();
         
-        TemperaturaPersistence temperaturaPersistence1 = new TemperaturaPersistence(); 
+        IluminacionPersistence ilimunacionPersistence1 = new IluminacionPersistence(); 
         
-        TemperaturaEntity entity1 = new TemperaturaEntity(); 
+        IluminacionEntity entity1 = new IluminacionEntity(); 
         
         fecha = new Date(); 
-        ubicacion = ("La casa de bibi"); 
+        ubicacion = ("La ca bibi"); 
         valor = 23; 
         
-        entity1.setId("252525");
-        entity1.setFecha(fecha);
-        entity1.setUnidad("C");
+        entity1.setId("352525");
+        entity1.setFecha(null);
+        entity1.setUnidad("lux");
         entity1.setUbicacion(ubicacion);
         entity1.setValor(valor);
         
        
-        temperaturaPersistence1.add(entity1);
+        ilimunacionPersistence1.add(entity1);
          
-         List<TemperaturaEntity> lista = new ArrayList();
-         List<TemperaturaEntity> lista1 = new ArrayList();
-         lista = temperaturaPersistence.all();
-         lista1 = temperaturaPersistence.all();
+         List<IluminacionEntity> lista = new ArrayList();
+         List<IluminacionEntity> lista1 = new ArrayList();
+         lista = ilimunacionPersistence.all();
+         lista1 = ilimunacionPersistence.all();
          int numero = lista.size() + lista1.size();
          assertEquals("Debe haber dos entidades", 2, numero); 
      }
