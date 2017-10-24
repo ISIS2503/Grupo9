@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "alarma")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class AlarmaEntity implements Serializable {
     
     @Id
@@ -33,16 +36,6 @@ public class AlarmaEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     protected Date fecha; 
     
-    protected String tipo;
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public int getValor() {
         return valor;
     }
