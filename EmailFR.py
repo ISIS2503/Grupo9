@@ -8,6 +8,7 @@ import smtplib
 from kafka import KafkaConsumer
 from collections import namedtuple
 import datetime
+import requests
 
  
 consumer = KafkaConsumer('email', value_deserializer=lambda m:json.loads(m.decode('ascii')),
@@ -46,15 +47,21 @@ for message in consumer:
 
         message = """Subject: %s\n\n%s
         """ % (SUBJECT, TEXT)
-        
+        url = 'http://172.24.42.48:8084/alarmaFR'
+		
+		
     elif obj.tipo == "fl":
         SUBJECT = 'Alerta: Fuera de Linea'
         TEXT = 'El sensor que mide ' + obj.unidad + ' del microcontrolador ubicado en ' + obj.ubicacion + ' esta fuera de linea\n\nDesde: ' + str(datetime.datetime.fromtimestamp(float(obj.timestamp)/1000.0))
 
         message = """Subject: %s\n\n%s
         """ % (SUBJECT, TEXT)
-        
+        url = 'http://172.24.42.48:8084/alarmaFL'
+		
     server.sendmail("alertasynotificacionesg9@gmail.com", "jm.dominguez@uniandes.edu.co", message)
-    
+    response = requests.post(url, data=json.dumps(payload),
+                             headers={'Content-type': 'application/json'})
+	print(message.topic)
+	print("Response Status Code: " + str(response.status_code))
     
 server.quit()    
