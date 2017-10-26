@@ -11,7 +11,9 @@ from kafka import KafkaProducer
 import time
 
 class ProductorFueraDeRango:
-    
+    suma = 0
+    dif = 0
+    num = 0
     producer = KafkaProducer(value_serializer=lambda m:json.dumps(m).encode('ascii'),bootstrap_servers= ['localhost:8090'])
     
     def __init__(self):
@@ -25,11 +27,21 @@ class ProductorFueraDeRango:
             "timestamp": pFecha,
             "tipo": "fr"
             }
+        self.promedio(pFecha)
         a = json.dumps(obj)
         st = str(a)
         b = bytes(st, 'ascii')
         print(b)
         self.producer.send('email', b)
+	
+    def promedio(self, pFecha):
+        actual = int(round(time.time() * 1000))
+        self.dif = actual - pFecha
+        self.suma += self.dif
+        self.num += 1
+        if self.num == 5000:
+            print("tiempo promedio: ")
+            print(self.dif/5000)
 
 class microcontrolador:
     colaTemperatura = queue.Queue(10)
@@ -37,6 +49,7 @@ class microcontrolador:
     colaLuz = queue.Queue(10)
     colaSonido = queue.Queue(10)
     productor = ProductorFueraDeRango()
+    fechaPrueba = 0
     def __init__(self, pUbicacion, pValor, pUnidad, pFecha):
         self.ubicacion = pUbicacion
         self.valor = pValor
@@ -52,8 +65,9 @@ class microcontrolador:
         limiteSuperior = 27
         promedio = self.calcularPromedioTemperatura()
         if promedio < limiteInferior or promedio > limiteSuperior:
-            fecha = int(round(time.time() * 1000))
-            self.productor.enviarAlerta(self.ubicacion, promedio, self.unidad, fecha)
+            #fecha = int(round(time.time() * 1000))
+            print(self.fechaPrueba)
+            self.productor.enviarAlerta(self.ubicacion, promedio, self.unidad, self.fechaPrueba)
         
     def agregarCO(self, pTemp):
         llena = self.colaCO.full()
@@ -168,6 +182,7 @@ for message in consumer:
         
     if obj.unit == "C":
         micro2.agregarTemperatura(obj.data)
+        micro2.fechaPrueba = obj.sensetime
         print('hola')
     if obj.unit == "Lux":
         micro2.agregarLuz(obj.data)

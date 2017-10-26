@@ -44,7 +44,7 @@ for message in consumer:
 
         message = """Subject: %s\n\n%s
         """ % (SUBJECT, TEXT)
-		url = 'http://172.24.42.48:8084/alarmaFR'
+        url = 'http://172.24.42.48:8084/alarmaFR'
         
     elif obj.tipo == "fl":
         SUBJECT = 'Alerta: Fuera de Linea'
@@ -52,12 +52,12 @@ for message in consumer:
 
         message = """Subject: %s\n\n%s
         """ % (SUBJECT, TEXT)
-		url = 'http://172.24.42.48:8084/alarmaFL'
+        url = 'http://172.24.42.48:8084/alarmaFL'
         
-    server.sendmail("alertasynotificacionesg9@gmail.com", "nicolas.acevedo96@gmail.com", message)
+    server.sendmail("alertasynotificacionesg9@gmail.com", "ne.cabrera@uniandes.edu.co", message)
     response = requests.post(url, data=json.dumps(payload),
                              headers={'Content-type': 'application/json'})
-	print(message.topic)
-	print("Response Status Code: " + str(response.status_code))
+    print(message.topic)
+    print("Response Status Code: " + str(response.status_code))
     
-server.quit()    
+    server.quit()
