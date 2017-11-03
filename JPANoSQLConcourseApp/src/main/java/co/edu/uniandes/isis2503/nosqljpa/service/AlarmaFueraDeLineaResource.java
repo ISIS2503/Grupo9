@@ -42,7 +42,7 @@ import javax.ws.rs.core.MediaType;
  */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/alrmaFL")
+@Path("/alarmaFL")
 public class AlarmaFueraDeLineaResource {
     private AlarmaFueraDeLineaLogic flLogic;
     

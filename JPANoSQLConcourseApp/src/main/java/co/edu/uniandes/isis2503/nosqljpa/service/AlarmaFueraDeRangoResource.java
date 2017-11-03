@@ -42,7 +42,7 @@ import javax.ws.rs.POST;
  */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/alrmaFR")
+@Path("/alarmaFR")
 public class AlarmaFueraDeRangoResource {
     private AlarmaFueraDeRangoLogic frLogic;
     
