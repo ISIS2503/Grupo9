@@ -43,12 +43,14 @@ public class COResource {
     }
      
     @GET
+    @Secured
     public List<CODTO> getCO() {
         
         return listEntity2DTO(coLogic.getCOs());
     }  
     
     @POST
+    @Secured
     public CODTO createCO(CODTO dto){
         if(dto.getId() == null)
         {
