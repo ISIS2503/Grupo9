@@ -24,6 +24,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/iluminacion")
+@Secured({Role.Admin})
 public class IluminacionResource {
     private IluminacionLogic iluminacionLogic; 
     public IluminacionResource()
