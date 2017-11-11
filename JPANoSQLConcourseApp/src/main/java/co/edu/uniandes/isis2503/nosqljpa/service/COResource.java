@@ -24,6 +24,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/co")
+@Secured({Role.Admin})
 public class COResource {
     
     private COLogic coLogic;  
