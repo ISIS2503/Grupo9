@@ -4,6 +4,7 @@ C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\logic\AlarmaFueraDeLineaLogic.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\logic\SonidoLogic.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\entity\TemperaturaEntity.java
+C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\auth\CORSFilter.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\logic\AlarmaFueraDeRangoLogic.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\persistence\MedidasPersistence.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\dto\MedidasDTO.java
@@ -26,11 +27,14 @@ C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\entity\AlarmaEntity.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\entity\COEntity.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\service\AlarmaFueraDeRangoResource.java
+C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\auth\Secured.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\dto\TemperaturaDTO.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\model\entity\SonidoEntity.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\service\IluminacionResource.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\logic\IluminacionLogic.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\service\TemperaturaResource.java
+C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\auth\AuthorizationFilter.java
+C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\auth\AuthenticationFilter.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\persistence\COPersistence.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\logic\MedidasLogic.java
 C:\Users\ne.cabrera\Desktop\proyecto\Grupo9.1\JPANoSQLConcourseApp\src\main\java\co\edu\uniandes\isis2503\nosqljpa\service\MedidasResource.java

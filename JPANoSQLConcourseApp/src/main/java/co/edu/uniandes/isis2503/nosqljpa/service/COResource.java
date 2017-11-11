@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.COLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.CODTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.COEntity;
@@ -24,7 +26,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/co")
-@Secured({Role.Admin})
+@Secured({Role.admin})
 public class COResource {
     
     private COLogic coLogic;  
