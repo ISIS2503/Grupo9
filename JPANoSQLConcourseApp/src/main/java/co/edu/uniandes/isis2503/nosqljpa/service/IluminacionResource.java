@@ -45,14 +45,13 @@ public class IluminacionResource {
     }
      
     @GET
-    @Secured
     public List<IluminacionDTO> getIluminacion() {
         
         return listEntity2DTO(iluminacionLogic.getIluminaciones());
     }  
     
     @POST
-    @Secured
+    @Secured({Role.admin, Role.service})
     public IluminacionDTO createIluminacion(IluminacionDTO dto){
         if(dto.getId() == null)
         {

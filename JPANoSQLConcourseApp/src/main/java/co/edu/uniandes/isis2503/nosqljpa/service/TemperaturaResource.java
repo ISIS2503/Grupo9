@@ -45,14 +45,13 @@ public class TemperaturaResource {
     }
      
     @GET
-    @Secured
     public List<TemperaturaDTO> getTemperatura() {
         
         return listEntity2DTO(temperaturaLogic.getTemperaturas());
     }  
     
     @POST
-    @Secured
+    @Secured({Role.admin, Role.service})
     public TemperaturaDTO createTemperatura(TemperaturaDTO dto){
         if(dto.getId() == null)
         {

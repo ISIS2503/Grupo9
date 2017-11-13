@@ -61,7 +61,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
     public static final String AUTHENTICATION_SCHEME = "Bearer";
 
-    final JwkProvider provider = new UrlJwkProvider("https://arquisoft201720-necabrera.auth0.com/.well-known/jwks.json");
+    final JwkProvider provider = new UrlJwkProvider("https://proyectominas.auth0.com/.well-known/jwks.json");
     final String privateKeyId = "PK";
     RSAKeyProvider keyProvider = new RSAKeyProvider() {
         @Override
@@ -102,16 +102,17 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
     void verifyToken(String token) {
         try {//Cambiar por variables de entorno
-            String issuer = "https://arquisoft201720-necabrera.auth0.com/";
+            String issuer = "https://proyectominas.auth0.com/";
             String audience;
             //Access token
             if (!JWT.decode(token).getClaim("gty").isNull() && JWT.decode(token).getClaim("gty").asString().equals("client-credentials")) {
-                audience = "uniandes.edu.co/thermalcomfort";
+                audience = "grupo9/proyectominas";
             }
             //ID token
             else {
-                audience = "GRn03JUmIvBn_y3kFUp-Otph4Nzi_MbA";
+                audience = "UzR5wG-A-aVeJQvY5cIeIqFlnfZzpk70";
             }
+            System.out.println(audience + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer(issuer)
                     .withAudience(audience)
@@ -144,10 +145,12 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
         // Get the Authorization header from the request
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         String authorizationHeader
                 = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
         // Validate the Authorization header
+
         if (!isTokenBasedAuthentication(authorizationHeader)) {
             abortWithUnauthorized(requestContext);
         }

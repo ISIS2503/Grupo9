@@ -45,14 +45,13 @@ public class SonidoResource {
     }
      
     @GET
-    @Secured
     public List<SonidoDTO> getSonido() {
         
         return listEntity2DTO(temperaturaLogic.getSonidos());
     }  
     
     @POST
-    @Secured
+    @Secured({Role.admin, Role.service})
     public SonidoDTO createSonido(SonidoDTO dto){
         if(dto.getId() == null)
         {
