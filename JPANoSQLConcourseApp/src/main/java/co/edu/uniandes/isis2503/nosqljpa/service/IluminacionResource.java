@@ -51,6 +51,7 @@ public class IluminacionResource {
     }  
     
     @POST
+    @Secured({Role.admin, Role.service})
     public IluminacionDTO createIluminacion(IluminacionDTO dto){
         if(dto.getId() == null)
         {

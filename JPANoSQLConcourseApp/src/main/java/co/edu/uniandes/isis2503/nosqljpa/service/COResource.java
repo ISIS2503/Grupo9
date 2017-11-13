@@ -51,6 +51,7 @@ public class COResource {
     }  
     
     @POST
+    @Secured({Role.admin, Role.service})
     public CODTO createCO(CODTO dto){
         if(dto.getId() == null)
         {

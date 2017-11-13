@@ -51,6 +51,7 @@ public class SonidoResource {
     }  
     
     @POST
+    @Secured({Role.admin, Role.service})
     public SonidoDTO createSonido(SonidoDTO dto){
         if(dto.getId() == null)
         {

@@ -51,6 +51,7 @@ public class TemperaturaResource {
     }  
     
     @POST
+    @Secured({Role.admin, Role.service})
     public TemperaturaDTO createTemperatura(TemperaturaDTO dto){
         if(dto.getId() == null)
         {
