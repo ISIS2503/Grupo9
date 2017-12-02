@@ -1,6 +1,7 @@
+
 export const AUTH_CONFIG = {
-  domain: '{DOMAIN}',
-  clientId: '{CLIENT_ID}',
+  domain: 'proyectominas.auth0.com',
+  clientId: 'UzR5wG-A-aVeJQvY5cIeIqFlnfZzpk70',
   callbackUrl: 'http://localhost:3000/callback',
-  apiUrl: '{API_IDENTIFIER}'
+  apiUrl: 'grupo9/proyectominas'
 }
