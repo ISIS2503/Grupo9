@@ -19,8 +19,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 @Consumes(MediaType.APPLICATION_JSON)
@@ -48,7 +50,13 @@ public class IluminacionResource {
     public List<IluminacionDTO> getIluminacion() {
         
         return listEntity2DTO(iluminacionLogic.getIluminaciones());
-    }  
+    }
+    
+    @GET
+    @Path("/pagina")
+    public Response getAllTemperatures(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+        return iluminacionLogic.getAllPage(page,maxRecords);
+    }
     
     @POST
     @Secured({Role.admin, Role.service})

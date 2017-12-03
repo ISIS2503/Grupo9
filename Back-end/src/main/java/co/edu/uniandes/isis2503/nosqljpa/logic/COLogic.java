@@ -10,6 +10,7 @@ import javax.inject.Inject;
 
 import java.util.List;
 import java.util.UUID;
+import javax.ws.rs.core.Response;
 
 
 
@@ -26,7 +27,9 @@ public class COLogic {
                 this.persistence = new COPersistence();
             }
     
-    
+    public Response getAllPage(Integer page, Integer maxRecords) {
+        return persistence.getAllPage(page,maxRecords);
+    }
     
     /**
      * Obtiene la lista de los registros de Usuario.

@@ -48,11 +48,11 @@ public class TemperaturaResource {
      
     @GET
     public List<TemperaturaDTO> getTemperatura() {
-        
         return listEntity2DTO(temperaturaLogic.getTemperaturas());
     }
     
     @GET
+    @Path("/pagina")
     public Response getAllTemperatures(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
         return temperaturaLogic.getAllPage(page,maxRecords);
     }

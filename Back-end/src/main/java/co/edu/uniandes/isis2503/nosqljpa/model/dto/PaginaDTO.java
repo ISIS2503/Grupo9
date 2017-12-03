@@ -28,13 +28,14 @@ import java.util.List;
 /**
  *
  * @author ne.cabrera
+ * @param <T>
  */
-public class PaginaTemperaturaDTO {
+public class PaginaDTO<T> {
     
     private Long totalRecords;
-    private List<TemperaturaDTO> competitors;
+    private List<T> medidas;
  
-    public PaginaTemperaturaDTO(){
+    public PaginaDTO(){
  
     }
  
@@ -47,11 +48,11 @@ public class PaginaTemperaturaDTO {
         this.totalRecords = totalRecords;
     }
  
-    public List<TemperaturaDTO> getCompetitors() {
-        return competitors;
+    public List<T> getMedidas() {
+        return medidas;
     }
  
-    public void setCompetitors(List<TemperaturaDTO> competitors) {
-        this.competitors = competitors;
+    public void setMedidas(List<T> competitors) {
+        this.medidas = competitors;
     } 
 }
