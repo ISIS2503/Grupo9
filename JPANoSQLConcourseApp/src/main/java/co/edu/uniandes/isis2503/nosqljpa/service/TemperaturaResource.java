@@ -53,7 +53,7 @@ public class TemperaturaResource {
     }
     
     @GET
-    public Response getAllCompetitors(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+    public Response getAllTemperatures(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
         return temperaturaLogic.getAllPage(page,maxRecords);
     }
     
