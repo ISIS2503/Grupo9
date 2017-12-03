@@ -18,6 +18,7 @@ co\edu\uniandes\isis2503\nosqljpa\persistence\IluminacionPersistence.class
 co\edu\uniandes\isis2503\nosqljpa\model\dto\SonidoDTO.class
 co\edu\uniandes\isis2503\nosqljpa\persistence\JPAConnection.class
 co\edu\uniandes\isis2503\nosqljpa\model\dto\AlarmaFueraDeRangoDTO.class
+co\edu\uniandes\isis2503\nosqljpa\model\dto\PaginaDTO.class
 co\edu\uniandes\isis2503\nosqljpa\logic\AlarmaFueraDeLineaLogic.class
 co\edu\uniandes\isis2503\nosqljpa\model\dto\MedidasDTO.class
 co\edu\uniandes\isis2503\nosqljpa\service\AlarmaFueraDeRangoResource.class

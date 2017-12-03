@@ -8,6 +8,7 @@ import co.edu.uniandes.isis2503.nosqljpa.persistence.IluminacionPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 
 
@@ -23,7 +24,9 @@ public class IluminacionLogic {
              this.persistence = new IluminacionPersistence();   
             }
     
-    
+    public Response getAllPage(Integer page, Integer maxRecords) {
+        return persistence.getAllPage(page,maxRecords);
+    }
     
     /**
      * Obtiene la lista de los registros de Usuario.

@@ -8,6 +8,7 @@ import co.edu.uniandes.isis2503.nosqljpa.persistence.SonidoPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 
 
@@ -34,6 +35,10 @@ public class SonidoLogic {
    
     public List<SonidoEntity> getSonidos() {
         return persistence.all(); 
+    }
+    
+    public Response getAllPage(Integer page, Integer maxRecords) {
+        return persistence.getAllPage(page,maxRecords);
     }
     
     /**

@@ -30,6 +30,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.hibernate.Criteria;
 
@@ -49,6 +50,7 @@ public class Persistencer<T, PK> {
     public Persistencer() {
 
         this.entityManager = JPAConnection.CONNECTION.getEntityManager();
+        this.emf = Persistence.createEntityManagerFactory("derby_db");
 
     }
 

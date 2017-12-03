@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.persistence;
 
-import co.edu.uniandes.isis2503.nosqljpa.model.dto.PaginaTemperaturaDTO;
+import co.edu.uniandes.isis2503.nosqljpa.model.dto.PaginaDTO;
 import co.edu.uniandes.isis2503.nosqljpa.model.entity.TemperaturaEntity;
 import javax.ejb.Stateless;
 import javax.persistence.Query;
@@ -25,23 +25,22 @@ public class TemperaturaPersistence extends Persistencer<TemperaturaEntity, Stri
     }
     
     public Response getAllPage(Integer page, Integer maxRecords) {
- 
-        PaginaTemperaturaDTO competitors = null;
+        PaginaDTO temps = null;
         entityManager = emf.createEntityManager();
         int status = 200;
         try{
             entityManager.getTransaction().begin();
-            Query count = entityManager.createQuery("select count(u) from CompetitorEntity u");
+            Query count = entityManager.createQuery("select count(u) from TemperaturaEntity u");
             Long regCount = 0L;
             regCount = Long.parseLong(count.getSingleResult().toString());
-            Query query = entityManager.createQuery("select u from CompetitorEntity u");
+            Query query = entityManager.createQuery("select u from TemperaturaEntity u");
             if(page != null && maxRecords != null){
                 query.setFirstResult((page-1)*maxRecords);
                 query.setMaxResults(maxRecords);
             }
-            competitors = new PaginaTemperaturaDTO();
-            competitors.setTotalRecords(regCount);
-            competitors.setCompetitors(query.getResultList());
+            temps = new PaginaDTO();
+            temps.setTotalRecords(regCount);
+            temps.setMedidas(query.getResultList());
             entityManager.getTransaction().commit();
  
  
@@ -54,6 +53,6 @@ public class TemperaturaPersistence extends Persistencer<TemperaturaEntity, Stri
             if (entityManager.isOpen());
             entityManager.close();
         }
-        return Response.status(status).header("Access-Control-Allow-Origin", "*").entity(competitors).build();
+        return Response.status(status).header("Access-Control-Allow-Origin", "*").entity(temps).build();
     }
 }
