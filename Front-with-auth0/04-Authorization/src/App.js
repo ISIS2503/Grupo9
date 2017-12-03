@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   render() {
-    const { isAuthenticated, userHasScopes } = this.props.auth;
+    const { isAuthenticated, userHasRole } = this.props.auth;
 
     return (
       <div>
@@ -66,7 +66,7 @@ class App extends Component {
                 )
             }
             {
-              isAuthenticated() &&  userHasScopes(['write:messages']) && (
+              isAuthenticated() &&  userHasRole(['admin']) && (
                   <Button
                     bsStyle="primary"
                     className="btn-margin"

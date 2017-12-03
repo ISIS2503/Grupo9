@@ -4,7 +4,7 @@ import history from '../history';
 
 export default class Auth {
   userProfile;
-  requestedScopes = 'openid profile read:messages write:messages';
+  requestedScopes = 'openid profile groups roles permissions';
 
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
@@ -21,6 +21,7 @@ export default class Auth {
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.userHasScopes = this.userHasScopes.bind(this);
+    this.userHasRole = this.userHasRole.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
@@ -52,9 +53,11 @@ export default class Auth {
     // use the scopes as requested. If no scopes were requested,
     // set it to nothing
     const scopes = authResult.scope || this.requestedScopes || '';
+    console.log(authResult);
 
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('id_tokenPayload', JSON.stringify(authResult.idTokenPayload.roles));
     localStorage.setItem('expires_at', expiresAt);
     localStorage.setItem('scopes', JSON.stringify(scopes));
     // navigate to the home route
@@ -67,6 +70,14 @@ export default class Auth {
       throw new Error('No access token found');
     }
     return accessToken;
+  }
+
+  getIdToken() {
+    const idToken = localStorage.getItem('id_token');
+    if (!idToken) {
+      throw new Error('No id token found');
+    }
+    return idToken;
   }
 
   getProfile(cb) {
@@ -83,6 +94,7 @@ export default class Auth {
     // Clear access token and ID token from local storage
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
+    localStorage.removeItem('id_tokenPayload');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('scopes');
     this.userProfile = null;
@@ -100,5 +112,10 @@ export default class Auth {
   userHasScopes(scopes) {
     const grantedScopes = JSON.parse(localStorage.getItem('scopes')).split(' ');
     return scopes.every(scope => grantedScopes.includes(scope));
+  }
+
+  userHasRole(roles) {
+    const userRoles = JSON.parse(localStorage.getItem('id_tokenPayload'));
+    return userRoles.some(v => roles.includes(v));
   }
 }
