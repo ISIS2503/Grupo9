@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.Query;
@@ -43,6 +44,7 @@ public class Persistencer<T, PK> {
     private static final Logger LOG = Logger.getLogger(Persistencer.class.getName());
     protected Class<T> entityClass;
     protected EntityManager entityManager;
+    protected EntityManagerFactory emf;
 
     public Persistencer() {
 

@@ -6,6 +6,7 @@ import co.edu.uniandes.isis2503.nosqljpa.persistence.TemperaturaPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.core.Response;
 
 
 
@@ -49,6 +50,10 @@ public class TemperaturaLogic {
              System.out.println("No existe un usuario con ese id"); 
          }
          return ue; 
+    }
+    
+    public Response getAllPage(Integer page, Integer maxRecords) {
+        return persistence.getAllPage(page,maxRecords);
     }
     
     /**
