@@ -10,12 +10,7 @@
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "cors": "^2.8.3",
-    "dotenv": "^4.0.0",
-    "express": "^4.14.1",
-    "express-jwt": "^5.3.0",
-    "express-jwt-authz": "^1.0.0",
     "history": "^4.6.1",
-    "jwks-rsa": "^1.1.1",
     "morgan": "^1.8.2",
     "npm-run-all": "^4.0.2",
     "react": "^15.5.4",
@@ -25,7 +20,7 @@
     "react-router-dom": "^4.1.1"
   },
   "scripts": {
-    "start": "npm-run-all --parallel server:start client:start",
+    "start": "npm-run-all --parallel client:start",
     "client:start": "react-scripts start",
     "server:start": "node server.js",
     "build": "react-scripts build",
