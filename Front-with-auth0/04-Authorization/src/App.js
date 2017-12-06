@@ -55,6 +55,17 @@ class App extends Component {
                 )
             }
             {
+              isAuthenticated() && userHasRole(['admin']) && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'pagina')}
+                  >
+                    Pagina
+                  </Button>
+                )
+            }
+            {
               isAuthenticated() && (
                   <Button
                     bsStyle="primary"
@@ -73,6 +84,17 @@ class App extends Component {
                     onClick={this.goTo.bind(this, 'admin')}
                   >
                     Admin
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() &&  userHasRole(['admin']) && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'por')}
+                  >
+                    Por definir
                   </Button>
                 )
             }

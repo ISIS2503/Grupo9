@@ -8,6 +8,8 @@ import Admin from './Admin/Admin';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
+import Pagina from './Pagina/Pagina';
+import Funcionalidades from './Funcionalidades/Funcionalidades';
 
 const auth = new Auth();
 
@@ -37,11 +39,25 @@ export const makeMainRoutes = () => {
               <Ping auth={auth} {...props} />
             )
           )} />
+          <Route path="/por" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Funcionalidades auth={auth} {...props} />
+            )
+          )} />
           <Route path="/admin" render={(props) => (
             !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
               <Redirect to="/home"/>
             ) : (
               <Admin auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/pagina" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Pagina auth={auth} {...props} />
             )
           )} />
           <Route path="/callback" render={(props) => {
