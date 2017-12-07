@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Table, Button, FormGroup, ControlLabel, FormControl, Glyphicon, Pagination } from 'react-bootstrap';
 import { API_URL } from './../constants';
-import Temperatura from './temperatura';
+import Ruido from './Ruido';
 import axios from 'axios';
 
 class PaginaRuido extends Component {
   componentWillMount() {
     this.setState({ 
-      temperaturas: [],
+      ruidoss: [],
       message: '',
       ubicacion: '',
       valor: '',
@@ -19,7 +19,7 @@ class PaginaRuido extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
   componentDidMount() {
-    this.getTemperatura();
+    this.getRuido();
   }
   handleNameChange(event) {
     this.setState({ name: event.target.value });
@@ -27,24 +27,24 @@ class PaginaRuido extends Component {
   handleCodeChange(event) {
     this.setState({ code: event.target.value });
   }
-  addTemperatura(event) {
+  addRuido(event) {
     event.preventDefault();
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
-    const temperatura = { name: this.state.name, code: this.state.code };
-    axios.post(`${API_URL}/temperatura`, temperatura, { credentials: true, headers: headers })
+    const ruido = { name: this.state.name, code: this.state.code };
+    axios.post(`${API_URL}/sonido`, ruido, { credentials: true, headers: headers })
     .then(response => this.getFloors())
     .catch(error => this.setState({ message: error.message }));
   }
   handleSelect(eventKey){
     console.log(this);
         this.state.currentPage = eventKey;
-    this.getTemperatura();
+    this.getRuido();
   }
-  getTemperatura() {
+  getRuido() {
     
     var paginaActual = this.state.currentPage;
-    var url = '/temperatura/pagina?page=' + paginaActual + '&maxRecords=10';
+    var url = '/sonido/pagina?page=' + paginaActual + '&maxRecords=10';
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
     axios.get(`${API_URL}` + url, { credentials: true, headers: headers })
@@ -56,7 +56,7 @@ class PaginaRuido extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-      <h1>Temperaturas</h1>
+      <h1>Ruido</h1>
       
       
       <Table striped bordered condensed hover className="center">
@@ -71,16 +71,16 @@ class PaginaRuido extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.temperaturas.map((temperatura, index) => {
+          {this.state.ruidos.map((ruido, index) => {
           return (
-            <Temperatura
+            <Ruido
               key={index}
               number={index + 1}
-              id={temperatura.id}
-              ubicacion={temperatura.ubicacion}
-              valor={temperatura.valor}
-              unidad={temperatura.unidad}
-              fecha={temperatura.fecha}
+              id={ruido.id}
+              ubicacion={ruido.ubicacion}
+              valor={ruido.valor}
+              unidad={ruido.unidad}
+              fecha={ruido.fecha}
               auth={this.props.auth}
               getFloors={() => this.getFloors()}
             />
@@ -112,4 +112,4 @@ class PaginaRuido extends Component {
   }
 }
 
-export default Pagina;
+export default PaginaRuido;

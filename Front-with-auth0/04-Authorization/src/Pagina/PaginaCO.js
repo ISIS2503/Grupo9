@@ -4,7 +4,7 @@ import { API_URL } from './../constants';
 import CO from './CO';
 import axios from 'axios';
 
-class PaginaCO extends Component {
+class Pagina extends Component {
   componentWillMount() {
     this.setState({ 
       cos: [],
@@ -19,7 +19,7 @@ class PaginaCO extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
   componentDidMount() {
-    this.getTemperatura();
+    this.getCo();
   }
   handleNameChange(event) {
     this.setState({ name: event.target.value });
@@ -27,24 +27,24 @@ class PaginaCO extends Component {
   handleCodeChange(event) {
     this.setState({ code: event.target.value });
   }
-  addTemperatura(event) {
+  addCO(event) {
     event.preventDefault();
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
-    const temperatura = { name: this.state.name, code: this.state.code };
-    axios.post(`${API_URL}/temperatura`, temperatura, { credentials: true, headers: headers })
+    const co = { name: this.state.name, code: this.state.code };
+    axios.post(`${API_URL}/co`, co, { credentials: true, headers: headers })
     .then(response => this.getFloors())
     .catch(error => this.setState({ message: error.message }));
   }
   handleSelect(eventKey){
     console.log(this);
         this.state.currentPage = eventKey;
-    this.getTemperatura();
+    this.getCO();
   }
-  getTemperatura() {
+  getCO() {
     
     var paginaActual = this.state.currentPage;
-    var url = '/temperatura/pagina?page=' + paginaActual + '&maxRecords=10';
+    var url = '/co/pagina?page=' + paginaActual + '&maxRecords=10';
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
     axios.get(`${API_URL}` + url, { credentials: true, headers: headers })
@@ -56,7 +56,7 @@ class PaginaCO extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-      <h1>Temperaturas</h1>
+      <h1>COs</h1>
       
       
       <Table striped bordered condensed hover className="center">
@@ -71,16 +71,16 @@ class PaginaCO extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.temperaturas.map((temperatura, index) => {
+          {this.state.cos.map((co, index) => {
           return (
-            <Temperatura
+            <CO
               key={index}
               number={index + 1}
-              id={temperatura.id}
-              ubicacion={temperatura.ubicacion}
-              valor={temperatura.valor}
-              unidad={temperatura.unidad}
-              fecha={temperatura.fecha}
+              id={co.id}
+              ubicacion={co.ubicacion}
+              valor={co.valor}
+              unidad={co.unidad}
+              fecha={co.fecha}
               auth={this.props.auth}
               getFloors={() => this.getFloors()}
             />
@@ -112,4 +112,4 @@ class PaginaCO extends Component {
   }
 }
 
-export default Pagina;
+export default PaginaCO;
