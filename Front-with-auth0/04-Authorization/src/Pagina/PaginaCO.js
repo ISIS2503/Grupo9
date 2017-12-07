@@ -56,7 +56,7 @@ class Pagina extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-      <h1>CO</h1>
+      <h1>COs</h1>
       
       
       <Table striped bordered condensed hover className="center">
