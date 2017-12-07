@@ -30,7 +30,7 @@ class App extends Component {
               className="btn-margin"
               onClick={this.goTo.bind(this, 'home')}
             >
-              Home
+              Dashboard
             </Button>
             {
               !isAuthenticated() && (
