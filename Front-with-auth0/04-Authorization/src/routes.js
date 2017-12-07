@@ -86,9 +86,9 @@ export const makeMainRoutes = () => {
               <CRUDAreas auth={auth} {...props} />
             )
           )} />
-          <Route path="/Altertas" render={(props) => (
+          <Route path="/Alertas" render={(props) => (
             !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
-              <Redirect to="/Altertas"/>
+              <Redirect to="/Alertas"/>
             ) : (
               <Alertas auth={auth} {...props} />
             )
