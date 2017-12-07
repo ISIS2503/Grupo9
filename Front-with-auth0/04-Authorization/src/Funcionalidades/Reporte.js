@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import { Table, Button, FormGroup, ControlLabel, FormControl, Glyphicon, Pagination } from 'react-bootstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import axios from 'axios';
 import React from 'react';
-import { Button } from 'reactstrap';
 
 class Reporte extends React.Component {
+    
+    
     getblah() {
         axios.get('http://localhost:8084/reporte')
                 .then(response => this.setState({reporte: response.data.medidas}))
