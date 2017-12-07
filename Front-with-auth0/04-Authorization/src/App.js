@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Button } from 'react-bootstrap';
+import { Navbar, Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -64,6 +64,18 @@ class App extends Component {
                     Mediciones
                     Históricas
                   </Button>
+                )
+            }
+            {
+              isAuthenticated() && userHasRole(['admin']) && (
+                  <DropdownButton bsStyle="primary"
+                    className="btn-margin" title="Mediciones
+                    Históricas" id="bg-nested-dropdown">
+                  <MenuItem onClick={this.goTo.bind(this, 'pagina')}>Temperatura</MenuItem>
+                  <MenuItem onClick={this.goTo.bind(this, 'paginaCO')}>CO</MenuItem>
+                  <MenuItem onClick={this.goTo.bind(this, 'paginaSonido')}>Sonido</MenuItem>
+                  <MenuItem onClick={this.goTo.bind(this, 'paginaLuz')}>Luz</MenuItem>
+                  </DropdownButton>
                 )
             }
             {

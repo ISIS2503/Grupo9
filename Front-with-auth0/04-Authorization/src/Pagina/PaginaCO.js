@@ -4,7 +4,7 @@ import { API_URL } from './../constants';
 import CO from './CO';
 import axios from 'axios';
 
-class Pagina extends Component {
+class PaginaCO extends Component {
   componentWillMount() {
     this.setState({ 
       cos: [],

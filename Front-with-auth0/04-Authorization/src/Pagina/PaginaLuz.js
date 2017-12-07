@@ -4,7 +4,7 @@ import { API_URL } from './../constants';
 import Luz from './Luz';
 import axios from 'axios';
 
-class Pagina extends Component {
+class PaginaLuz extends Component {
   componentWillMount() {
     this.setState({ 
       Luzs: [],

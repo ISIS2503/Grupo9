@@ -7,7 +7,7 @@ import axios from 'axios';
 class PaginaRuido extends Component {
   componentWillMount() {
     this.setState({ 
-      ruidoss: [],
+      ruidos: [],
       message: '',
       ubicacion: '',
       valor: '',

@@ -15,6 +15,9 @@ import CRUDNiveles from './Funcionalidades/CRUDNiveles';
 import CRUDAreas from './Funcionalidades/CRUDAreas';
 import Reporte from './Funcionalidades/Reporte';
 import Alertas from './Funcionalidades/Alertas';
+import PaginaCO from './Pagina/PaginaCO';
+import PaginaLuz from './Pagina/PaginaLuz';
+import PaginaRuido from './Pagina/PaginaRuido';
 
 const auth = new Auth();
 
@@ -63,6 +66,27 @@ export const makeMainRoutes = () => {
               <Redirect to="/home"/>
             ) : (
               <Pagina auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/paginaCO" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/home"/>
+            ) : (
+              <PaginaCO auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/paginaLuz" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/home"/>
+            ) : (
+              <PaginaLuz auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/paginaSonido" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/home"/>
+            ) : (
+              <PaginaRuido auth={auth} {...props} />
             )
           )} />
           <Route path="/CRUDMicrocontroladores" render={(props) => (
