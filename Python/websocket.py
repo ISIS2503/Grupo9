@@ -19,15 +19,19 @@ thread_lock = Lock()
  
 # Consumidor del topic de Kafka "alta.piso1.local1". Cada valor recibido se envía a través del websocket.
 def background_thread_websocket():
-    consumer = KafkaConsumer('alta.piso1.local1', group_id='my-group', bootstrap_servers=['172.24.42.27:8090'])
+    consumer = KafkaConsumer('alta.piso1.local2', group_id='my-group', bootstrap_servers=['172.24.42.27:8090'])
     for message in consumer:
         print("Hola")
         obj = json.loads(message.value,object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
+        
         payload ={
             "time": obj.sensetime,
-            "value": obj.data
+            "value": obj.data,
+			"unit": obj.unit
         }
+	
         payload = json.dumps(payload)
+		
         socketio.emit('mesurements', payload,
                       namespace='/thermalcomfort')
  
