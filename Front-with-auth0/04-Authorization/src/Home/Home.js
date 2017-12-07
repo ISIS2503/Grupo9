@@ -75,7 +75,7 @@ class Home extends Component {
 
         return (
                 <div className="container">
-                    {this.state.value}
+                    
                     {
                         isAuthenticated() && (
                                     

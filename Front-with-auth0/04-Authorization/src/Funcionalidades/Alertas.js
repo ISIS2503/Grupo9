@@ -5,8 +5,9 @@
  */
 
 import React from 'react';
-import { Table, Button, FormGroup, ControlLabel, FormControl, Glyphicon, Pagination } from 'react-bootstrap';
 
+import { Table, Button, FormGroup, ControlLabel, FormControl, Glyphicon, Pagination } from 'react-bootstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import axios from 'axios';
 
 class Alertas extends React.Component {
@@ -19,7 +20,12 @@ class Alertas extends React.Component {
 
     render() {
         return (
-                <div>    
+                <div>  
+           <Breadcrumb>
+        <BreadcrumbItem><a href="por">Funcionalidades</a></BreadcrumbItem>
+        <BreadcrumbItem active>Alertas</BreadcrumbItem>
+      </Breadcrumb>
+        <Button color="primary">Reporte</Button>{' '}
         <h4>alarmasFL.ubicacion</h4>
         <h4>alarmasFL.valor</h4>
         <h4>alarmasFL.unidad</h4>
