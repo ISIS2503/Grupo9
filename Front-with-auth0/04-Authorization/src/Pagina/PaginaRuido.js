@@ -4,7 +4,7 @@ import { API_URL } from './../constants';
 import Temperatura from './temperatura';
 import axios from 'axios';
 
-class Pagina extends Component {
+class PaginaRuido extends Component {
   componentWillMount() {
     this.setState({ 
       temperaturas: [],
