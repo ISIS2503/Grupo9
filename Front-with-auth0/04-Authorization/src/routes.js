@@ -10,6 +10,11 @@ import Auth from './Auth/Auth';
 import history from './history';
 import Pagina from './Pagina/Pagina';
 import Funcionalidades from './Funcionalidades/Funcionalidades';
+import CRUDMicrocontroladores from './Funcionalidades/CRUDMicrocontroladores';
+import CRUDNiveles from './Funcionalidades/CRUDNiveles';
+import CRUDAreas from './Funcionalidades/CRUDAreas';
+import Reporte from './Funcionalidades/Reporte';
+import Alertas from './Funcionalidades/Alertas';
 
 const auth = new Auth();
 
@@ -58,6 +63,41 @@ export const makeMainRoutes = () => {
               <Redirect to="/home"/>
             ) : (
               <Pagina auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/CRUDMicrocontroladores" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/CRUDMicrocontroladores"/>
+            ) : (
+              <CRUDMicrocontroladores auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/CRUDNiveles" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/CRUDNiveles"/>
+            ) : (
+              <CRUDNiveles auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/CRUDAreas" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/CRUDAreas"/>
+            ) : (
+              <CRUDAreas auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/Altertas" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/Altertas"/>
+            ) : (
+              <Alertas auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/Reporte" render={(props) => (
+            !auth.isAuthenticated() || !auth.userHasRole(['admin']) ? (
+              <Redirect to="/Reporte"/>
+            ) : (
+              <Reporte auth={auth} {...props} />
             )
           )} />
           <Route path="/callback" render={(props) => {
