@@ -94,7 +94,7 @@ class App extends Component {
                     className="btn-margin"
                     onClick={this.goTo.bind(this, 'por')}
                   >
-                    Por definir
+                    Funcionalidades
                   </Button>
                 )
             }
