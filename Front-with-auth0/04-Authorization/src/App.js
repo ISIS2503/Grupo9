@@ -61,7 +61,8 @@ class App extends Component {
                     className="btn-margin"
                     onClick={this.goTo.bind(this, 'pagina')}
                   >
-                    Pagina
+                    Mediciones
+                    Históricas
                   </Button>
                 )
             }

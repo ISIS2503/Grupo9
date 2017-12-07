@@ -16,6 +16,7 @@ class Pagina extends Component {
       totalRecords: '',
       currentPage:1
     });
+    this.handleSelect = this.handleSelect.bind(this);
   }
   componentDidMount() {
     this.getTemperatura();
@@ -35,6 +36,11 @@ class Pagina extends Component {
     .then(response => this.getFloors())
     .catch(error => this.setState({ message: error.message }));
   }
+  handleSelect(eventKey){
+    console.log(this);
+        this.state.currentPage = eventKey;
+    this.getTemperatura();
+  }
   getTemperatura() {
     
     var paginaActual = this.state.currentPage;
@@ -42,7 +48,7 @@ class Pagina extends Component {
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
     axios.get(`${API_URL}` + url, { credentials: true, headers: headers })
-    .then(response => this.setState({ temperaturas: response.data.medidas }))
+    .then(response => this.setState({ temperaturas: response.data.medidas, totalRecords: response.data.totalRecords }))
     .catch(error => this.setState({ message: error.message }));
      
   }
@@ -51,25 +57,8 @@ class Pagina extends Component {
     return (
       <div className="container">
       <h1>Temperaturas</h1>
-      <h2>Agregar temperatura</h2>
-      <form onSubmit={(event) => this.addTemperatura(event)}>
-        <FormGroup controlId="formInlineName">
-          <ControlLabel>Name</ControlLabel>
-          {' '}
-          <FormControl type="text" placeholder="Name" onChange={(event) => this.handleNameChange(event)} />
-        </FormGroup>
-        {' '}
-        <FormGroup controlId="formInlineCode">
-          <ControlLabel>Code</ControlLabel>
-          {' '}
-          <FormControl type="text" placeholder="Code" onChange={(event) => this.handleCodeChange(event)} />
-        </FormGroup>
-        {' '}
-        <Button bsStyle="success" type="submit">
-          <Glyphicon glyph="plus" /> Add
-        </Button>
-      </form>
-      <br />
+      
+      
       <Table striped bordered condensed hover className="center">
         <thead>
           <tr>
@@ -99,15 +88,24 @@ class Pagina extends Component {
         })}
         </tbody>
       </Table>
+       
        <div>
         <Pagination
-          bsSize="large"
-          items={10}
-          activePage={this.state.activePage}
-          onSelect={this.handleSelect}
-        />
+        prev
+        next
+        first
+        last
+        ellipsis
+        boundaryLinks
+        items={Math.ceil(this.state.totalRecords / 10)}
+        maxButtons={5}
+        activePage={this.state.currentPage}
+        onSelect={this.handleSelect}
+      />
+      
         <br />
       </div>
+      
       <h2>{this.state.message}</h2>
       </div>
       );
