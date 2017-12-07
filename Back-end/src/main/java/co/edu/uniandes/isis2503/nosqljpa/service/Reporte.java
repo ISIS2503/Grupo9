@@ -6,6 +6,12 @@
 package co.edu.uniandes.isis2503.nosqljpa.service;
 import co.edu.uniandes.isis2503.nosqljpa.logic.ReporteLogic;
 import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/reporte")
 public class Reporte {
      public Reporte()
     {
@@ -19,6 +25,6 @@ public class Reporte {
     public String getReporte() {
         
         
-        return ReporteLogic.getReporte();
+        return reporteLogic.getReport();
     }
 }
