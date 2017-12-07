@@ -56,18 +56,6 @@ class App extends Component {
             }
             {
               isAuthenticated() && userHasRole(['admin']) && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.goTo.bind(this, 'pagina')}
-                  >
-                    Mediciones
-                    Históricas
-                  </Button>
-                )
-            }
-            {
-              isAuthenticated() && userHasRole(['admin']) && (
                   <DropdownButton bsStyle="primary"
                     className="btn-margin" title="Mediciones
                     Históricas" id="bg-nested-dropdown">

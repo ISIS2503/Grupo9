@@ -48,7 +48,7 @@ class PaginaRuido extends Component {
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
     axios.get(`${API_URL}` + url, { credentials: true, headers: headers })
-    .then(response => this.setState({ temperaturas: response.data.medidas, totalRecords: response.data.totalRecords }))
+    .then(response => this.setState({ ruidos: response.data.medidas, totalRecords: response.data.totalRecords }))
     .catch(error => this.setState({ message: error.message }));
      
   }

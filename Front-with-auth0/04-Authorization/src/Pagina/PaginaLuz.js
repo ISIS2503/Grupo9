@@ -7,7 +7,7 @@ import axios from 'axios';
 class PaginaLuz extends Component {
   componentWillMount() {
     this.setState({ 
-      Luzs: [],
+      luzs: [],
       message: '',
       ubicacion: '',
       valor: '',
@@ -44,11 +44,11 @@ class PaginaLuz extends Component {
   getLuz() {
     
     var paginaActual = this.state.currentPage;
-    var url = '/luz/pagina?page=' + paginaActual + '&maxRecords=10';
+    var url = '/iluminacion/pagina?page=' + paginaActual + '&maxRecords=10';
     const { getIdToken } = this.props.auth;
     const headers = { Authorization: `Bearer ${getIdToken()}`};
     axios.get(`${API_URL}` + url, { credentials: true, headers: headers })
-    .then(response => this.setState({ temperaturas: response.data.medidas, totalRecords: response.data.totalRecords }))
+    .then(response => this.setState({ luzs: response.data.medidas, totalRecords: response.data.totalRecords }))
     .catch(error => this.setState({ message: error.message }));
      
   }
@@ -71,7 +71,7 @@ class PaginaLuz extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.luxs.map((luz, index) => {
+          {this.state.luzs.map((luz, index) => {
           return (
             <Luz
               key={index}
