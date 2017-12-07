@@ -28,7 +28,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/co")
-@Secured({Role.admin})
+//@Secured({Role.admin})
 public class COResource {
     
     private COLogic coLogic;  
@@ -59,7 +59,7 @@ public class COResource {
     }
     
     @POST
-    @Secured({Role.admin, Role.service})
+    //@Secured({Role.admin, Role.service})
     public CODTO createCO(CODTO dto){
         if(dto.getId() == null)
         {

@@ -28,7 +28,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/iluminacion")
-@Secured({Role.admin})
+//@Secured({Role.admin})
 public class IluminacionResource {
     private IluminacionLogic iluminacionLogic; 
     public IluminacionResource()
@@ -59,7 +59,7 @@ public class IluminacionResource {
     }
     
     @POST
-    @Secured({Role.admin, Role.service})
+    //@Secured({Role.admin, Role.service})
     public IluminacionDTO createIluminacion(IluminacionDTO dto){
         if(dto.getId() == null)
         {

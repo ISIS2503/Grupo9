@@ -28,7 +28,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/sonido")
-@Secured({Role.admin})
+//@Secured({Role.admin})
 public class SonidoResource {
     
     public SonidoResource()
@@ -59,7 +59,7 @@ public class SonidoResource {
     }
     
     @POST
-    @Secured({Role.admin, Role.service})
+    //@Secured({Role.admin, Role.service})
     public SonidoDTO createSonido(SonidoDTO dto){
         if(dto.getId() == null)
         {
